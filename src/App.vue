@@ -1,6 +1,6 @@
 <template>
   <div>hi</div>
-  <Charlie/>
+  <router-view/>
 </template>
 
 <script>
