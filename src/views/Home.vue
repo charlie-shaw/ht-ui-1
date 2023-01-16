@@ -1,26 +1,21 @@
 <template>
   <div>
-    <div class="topnav">
-        <div class="logo">Logo</div>
-        <div class="menu">
-          <li>菜单1</li>
-          <li>菜单2</li>
-        </div>
-    </div>
+    <Topnav/>
     <div class="banner">
         <h1>CharlieUI</h1>
         <h1>一个厉害的UI框架</h1>
         <p class="actions">
-            <a>GitHub</a>
-            <a>开始</a>
+            <a href="https://github.com">GitHub</a>
+            <router-link to="/doc">开始</router-link>
         </p>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Topnav from '../components/Topnav.vue'
 export default {
-
+  components:{Topnav}
 }
 </script>
 
@@ -30,23 +25,7 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-.topnav{
-  background-color: pink;
-  display: flex;
-  padding: 16px;
-  >.logo{
-    max-width: 6em;
-    margin-right: auto;
-  }
-  >.menu{
-    display: flex;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    >li{
-      margin: 0 1em;
-    }
-  }
-}
+
 .banner {
   padding: 100px 0;
   display: flex;

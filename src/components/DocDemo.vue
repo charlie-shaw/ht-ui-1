@@ -1,5 +1,5 @@
 <template>
-  <h2>我的第二个组件</h2>
+  <h2>Doc默认页面</h2>
 </template>
 
 <script>

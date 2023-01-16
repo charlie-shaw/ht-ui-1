@@ -1,5 +1,5 @@
 <template>
-  <div>这是我的第一个组件</div>
+  <h2>Dialog</h2>
 </template>
 
 <script>
