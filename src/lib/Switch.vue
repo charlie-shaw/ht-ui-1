@@ -1,6 +1,7 @@
 <template>
   <button
-    :class="{ checked: value }"
+    class="ht-switch"
+    :class="{ 'ht-checked': value }"
     @click="toggle"
     :disabled="disabled"
     :style="{
@@ -40,10 +41,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.ht-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -62,7 +63,7 @@ button {
     border-radius: $h2 / 2;
     transition: all 0.3s;
   }
-  &.checked {
+  &.ht-checked {
     background: var(--switch-on-color);
     > span {
       left: calc(100% - #{$h2} - 2px);

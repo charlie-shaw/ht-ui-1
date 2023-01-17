@@ -61,6 +61,7 @@ li {
   width: 150px;
   background-color: lightblue;
   padding: 16px;
+  flex-shrink: 0;
   > ol {
     margin: 0;
     padding: 0;
