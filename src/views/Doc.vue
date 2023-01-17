@@ -57,6 +57,7 @@ li {
   list-style: none;
 }
 .aside {
+  z-index: 99;
   width: 150px;
   background-color: lightblue;
   padding: 16px;

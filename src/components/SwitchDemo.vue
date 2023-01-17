@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Switch :value="y" @input="event=>y=event" />
+    <Switch v-model:value="boolean" 
+    active_color="#13CE66"
+    inactive_color="#DCDFE6"
+     />
   </div>
 </template>
 
@@ -10,8 +13,8 @@ import Switch from '../lib/Switch.vue'
 export default {
   components:{Switch},
   setup(){
-    const y = ref(true)
-    return{y}
+    const boolean = ref(true)
+    return{boolean}
   }
 };
 </script>

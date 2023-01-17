@@ -5,7 +5,7 @@
         <h1>CharlieUI</h1>
         <h1>一个厉害的UI框架</h1>
         <p class="actions">
-            <a href="https://github.com">GitHub</a>
+            <a href="https://github.com/1186549058/ht-ui-1">GitHub</a>
             <router-link to="/doc">开始</router-link>
         </p>
     </div>
