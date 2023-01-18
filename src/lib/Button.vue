@@ -4,13 +4,21 @@
   <!-- <button v-bind="rest"> -->
   <button
     class="ht-button"
-    :class="[button_class, { round: round }]"
+    :class="[
+    button_class,
+    { round: round }, 
+    { 'ht-loading': loading },
+    size_class
+    ]"
     :disabled="disabled"
     :style="{
       '--ht-button-text-color': color,
       '--ht-button-bg-color': bg,
     }"
   >
+    <i class="is-loading" v-if="loading">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M512 64a32 32 0 0 1 32 32v192a32 32 0 0 1-64 0V96a32 32 0 0 1 32-32zm0 640a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V736a32 32 0 0 1 32-32zm448-192a32 32 0 0 1-32 32H736a32 32 0 1 1 0-64h192a32 32 0 0 1 32 32zm-640 0a32 32 0 0 1-32 32H96a32 32 0 0 1 0-64h192a32 32 0 0 1 32 32zM195.2 195.2a32 32 0 0 1 45.248 0L376.32 331.008a32 32 0 0 1-45.248 45.248L195.2 240.448a32 32 0 0 1 0-45.248zm452.544 452.544a32 32 0 0 1 45.248 0L828.8 783.552a32 32 0 0 1-45.248 45.248L647.744 692.992a32 32 0 0 1 0-45.248zM828.8 195.264a32 32 0 0 1 0 45.184L692.992 376.32a32 32 0 0 1-45.248-45.248l135.808-135.808a32 32 0 0 1 45.248 0zm-452.544 452.48a32 32 0 0 1 0 45.248L240.448 828.8a32 32 0 0 1-45.248-45.248l135.808-135.808a32 32 0 0 1 45.248 0z"></path></svg>
+    </i>
     <slot />
   </button>
 </template>
@@ -32,6 +40,14 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+    size:{
+      type:String,
+      default:'default'
     },
     color: {
       type: String,
@@ -89,8 +105,8 @@ export default {
     const attrs = context.attrs;
     const { size, ...rest } = attrs;
     const button_class = ref(`theme-${props.theme}--${props.type}`);
-
-    return { size, rest, button_class };
+    const size_class = ref(`ht-button--${props.size}`)
+    return { size, rest, button_class,size_class };
   },
 };
 </script>
@@ -195,6 +211,39 @@ export default {
   }
   &.round {
     border-radius: 999px;
+  }
+  &.ht-loading {
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+    cursor: default;
+    >.is-loading{
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        animation: loading 2s linear infinite;
+    }
+    &:hover {
+      opacity: 0.5;
+    }
+    @keyframes loading {
+        0%{
+            transform: rotateZ(0deg);
+        }
+        100%{
+            transform: rotateZ(360deg);
+        }
+    }
+  }
+  &.ht-button--default{
+    padding: 8px 15px;
+  }
+  &.ht-button--large{
+    padding: 12px 19px;
+  }
+  &.ht-button--small{
+    font-size: 12px;
+    padding: 5px 11px;
   }
 }
 </style>

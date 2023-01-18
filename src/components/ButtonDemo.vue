@@ -80,6 +80,27 @@
   :disabled="true"
   >Danger</ht-button>
 
+  <h2>loading加载中</h2>
+  <ht-button 
+  type="primary"
+  :loading="true"
+  >Loading</ht-button>
+
+
+
+
+
+
+
+  <h2>按钮尺寸</h2>
+  <ht-button 
+  size="large"
+  >large</ht-button>
+  <ht-button 
+  >default</ht-button>
+  <ht-button 
+  size="small"
+  >small</ht-button>
 </template>
 
 <script lang="ts">
