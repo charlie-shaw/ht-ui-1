@@ -1,15 +1,7 @@
 <template>
-  <!-- 使用$attrs，可以让元素获取所有继承的属性 -->
-  <!-- <button v-bind="$attrs"> -->
-  <!-- <button v-bind="rest"> -->
   <button
     class="ht-button"
-    :class="[
-    button_class,
-    { round: round }, 
-    { 'ht-loading': loading },
-    size_class
-    ]"
+    :class="[{ round: round }, { 'ht-loading': loading }, classes]"
     :disabled="disabled"
     :style="{
       '--ht-button-text-color': color,
@@ -17,38 +9,31 @@
     }"
   >
     <i class="is-loading" v-if="loading">
-        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M512 64a32 32 0 0 1 32 32v192a32 32 0 0 1-64 0V96a32 32 0 0 1 32-32zm0 640a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V736a32 32 0 0 1 32-32zm448-192a32 32 0 0 1-32 32H736a32 32 0 1 1 0-64h192a32 32 0 0 1 32 32zm-640 0a32 32 0 0 1-32 32H96a32 32 0 0 1 0-64h192a32 32 0 0 1 32 32zM195.2 195.2a32 32 0 0 1 45.248 0L376.32 331.008a32 32 0 0 1-45.248 45.248L195.2 240.448a32 32 0 0 1 0-45.248zm452.544 452.544a32 32 0 0 1 45.248 0L828.8 783.552a32 32 0 0 1-45.248 45.248L647.744 692.992a32 32 0 0 1 0-45.248zM828.8 195.264a32 32 0 0 1 0 45.184L692.992 376.32a32 32 0 0 1-45.248-45.248l135.808-135.808a32 32 0 0 1 45.248 0zm-452.544 452.48a32 32 0 0 1 0 45.248L240.448 828.8a32 32 0 0 1-45.248-45.248l135.808-135.808a32 32 0 0 1 45.248 0z"></path></svg>
+      <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill="currentColor"
+          d="M512 64a32 32 0 0 1 32 32v192a32 32 0 0 1-64 0V96a32 32 0 0 1 32-32zm0 640a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V736a32 32 0 0 1 32-32zm448-192a32 32 0 0 1-32 32H736a32 32 0 1 1 0-64h192a32 32 0 0 1 32 32zm-640 0a32 32 0 0 1-32 32H96a32 32 0 0 1 0-64h192a32 32 0 0 1 32 32zM195.2 195.2a32 32 0 0 1 45.248 0L376.32 331.008a32 32 0 0 1-45.248 45.248L195.2 240.448a32 32 0 0 1 0-45.248zm452.544 452.544a32 32 0 0 1 45.248 0L828.8 783.552a32 32 0 0 1-45.248 45.248L647.744 692.992a32 32 0 0 1 0-45.248zM828.8 195.264a32 32 0 0 1 0 45.184L692.992 376.32a32 32 0 0 1-45.248-45.248l135.808-135.808a32 32 0 0 1 45.248 0zm-452.544 452.48a32 32 0 0 1 0 45.248L240.448 828.8a32 32 0 0 1-45.248-45.248l135.808-135.808a32 32 0 0 1 45.248 0z"
+        ></path>
+      </svg>
     </i>
     <slot />
   </button>
 </template>
 
 <script lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 export default {
   // 取消继承属性
   //   inheritAttrs: false,
   props: {
-    theme: {
-      type: String,
-      default: "button",
-    },
-    type: {
-      type: String,
-      default: "default",
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    size:{
-      type:String,
-      default:'default'
-    },
+    // 默认普通按钮，支持button/link/text
+    theme: {type: String,default: "button"},
+    // 按钮类型，支持default/primary/danger/warning
+    type: {type: String,default: "default"},
+    disabled: {type: Boolean,default: false},
+    loading: {type: Boolean,default: false},
+    // 按钮尺寸,支持large/default/small
+    size: {type: String,default: "default"},
     color: {
       type: String,
       default(val) {
@@ -75,11 +60,9 @@ export default {
     bg: {
       type: String,
       default(val) {
-        // console.log(val.theme);
-
         const type = val.type;
         if (val.theme === "link") {
-          return "rgba(0,0,0,0)";
+          return "transparent";
         } else if (val.theme === "text") {
           return "unset";
         } else if (type === "primary") {
@@ -95,18 +78,18 @@ export default {
         }
       },
     },
-    round: {
-      type: Boolean,
-      default: false,
-    },
+    round: {type: Boolean,default: false,},
   },
   setup(props, context) {
-    // 获取所有继承的属性
-    const attrs = context.attrs;
-    const { size, ...rest } = attrs;
-    const button_class = ref(`theme-${props.theme}--${props.type}`);
-    const size_class = ref(`ht-button--${props.size}`)
-    return { size, rest, button_class,size_class };
+    // @ts-ignore
+    const { theme, type, size } = props;
+    const classes = computed(() => {
+      return {
+        [`theme-${theme}--${type}`]: theme,
+        [`ht-button--${size}`]: size,
+      };
+    });
+    return { size, classes };
   },
 };
 </script>
@@ -120,10 +103,16 @@ export default {
   position: relative;
   transition: all 0.25s;
   border-radius: 6px;
+  + .ht-button {
+    margin-left: 10px;
+  }
   &[class*="theme-link"] {
-    &:hover,
-    &:disabled {
+    background-color: var(--ht-button-bg-color);
+    &:hover{
       opacity: 0.5;
+    }
+    &:disabled:hover{
+      opacity: 1;
     }
   }
   &[class*="theme-button"] {
@@ -206,7 +195,7 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.5);
     cursor: not-allowed;
   }
   &.round {
@@ -217,31 +206,31 @@ export default {
     align-items: center;
     opacity: 0.5;
     cursor: default;
-    >.is-loading{
-        width: 1em;
-        height: 1em;
-        display: inline-block;
-        animation: loading 2s linear infinite;
+    > .is-loading {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      animation: loading 2s linear infinite;
     }
     &:hover {
       opacity: 0.5;
     }
     @keyframes loading {
-        0%{
-            transform: rotateZ(0deg);
-        }
-        100%{
-            transform: rotateZ(360deg);
-        }
+      0% {
+        transform: rotateZ(0deg);
+      }
+      100% {
+        transform: rotateZ(360deg);
+      }
     }
   }
-  &.ht-button--default{
+  &.ht-button--default {
     padding: 8px 15px;
   }
-  &.ht-button--large{
+  &.ht-button--large {
     padding: 12px 19px;
   }
-  &.ht-button--small{
+  &.ht-button--small {
     font-size: 12px;
     padding: 5px 11px;
   }

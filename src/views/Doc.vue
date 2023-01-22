@@ -17,6 +17,9 @@
           <li>
             <router-link to="/doc/tabs">Tabs组件</router-link>
           </li>
+          <li>
+            <router-link to="/doc/messagebox">messageBox</router-link>
+          </li>
         </ol>
       </aside>
       <main class="main">
