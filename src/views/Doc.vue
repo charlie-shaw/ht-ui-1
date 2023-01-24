@@ -1,6 +1,6 @@
 <template>
   <div class="doc">
-    <Topnav />
+    <Topnav toggleMenu />
     <div class="content">
       <aside class="aside" ref="aside" :class="{open:asideVisible}" >
         <h2>组件列表</h2>

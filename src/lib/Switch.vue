@@ -50,6 +50,7 @@ export default {
       return props.style;
     });
     const toggle = () => {
+      if(props.disabled) return
       context.emit("update:modelValue", !props.modelValue);
     };
     return { toggle, SwitchClass, Stylecss };
@@ -84,7 +85,7 @@ $h2: $h - 4px;
     }
     margin-right: 10px;
   }
-  &:disabled::after {
+  &.is-disabled::after {
     position: absolute;
     content: "";
     left: 0;
@@ -120,6 +121,7 @@ $h2: $h - 4px;
   display: inline-flex;
   cursor: pointer;
   align-items: center;
+  position: relative;
   &.ht-switch--large {
     font-size: 14px;
     line-height: 24px;
