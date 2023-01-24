@@ -5,6 +5,7 @@ import './assets/global.scss'
 import './lib/ht.scss'
 import './index.scss'
 import {router} from './router'
+import 'github-markdown-css'
 
 const app = createApp(App)
 app.use(router)

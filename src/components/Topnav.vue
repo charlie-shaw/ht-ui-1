@@ -8,7 +8,7 @@
       </router-link>
     </div>
     <div class="menu">
-      <router-link to="/doc">文档</router-link>
+      <router-link to="/doc/intro">文档</router-link>
       <a href="https://github.com/1186549058/ht-ui-1" target="_blank">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-GitHub"></use>
@@ -50,7 +50,7 @@ export default {
   height: 60px;
   position: relative;
   align-items: center;
-  z-index: 10;
+  z-index: 100;
   justify-content: center;
   background-color: white;
   display: flex;
