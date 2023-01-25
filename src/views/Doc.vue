@@ -62,7 +62,7 @@ export default {
 @import "../assets/global.scss";
 .router-link-active {
   background-color: rgba(64, 158, 255, 0.1);
-  color: var(--el-color-primary);
+  color: var(--ht-color-primary);
   font-weight: bold;
 }
 .doc {
@@ -94,7 +94,7 @@ li {
         display: block;
         transition: all 0.25s;
         &:hover {
-          color: var(--el-color-primary);
+          color: var(--ht-color-primary);
         }
       }
     }
@@ -119,7 +119,7 @@ li {
   flex-grow: 1;
   > .main {
     flex-grow: 1;
-    padding: 15px;
+    padding: 20px 64px 20px 20px;
     height: 100%;
     overflow: auto;
     position: relative;

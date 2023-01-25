@@ -1,18 +1,17 @@
 
 import { createWebHashHistory, createRouter } from 'vue-router'
+import {h} from 'vue'
 import Home from './views/Home.vue'
 import Doc from './views/Doc.vue'
 import SwitchDemo from './views/Switch/SwitchDemo.vue'
 import ButtonDemo from './views/Button/ButtonDemo.vue'
 import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
-import DocDemo from './components/DocDemo.vue'
 import MessageBoxDemo from './components/MessageBoxDemo.vue'
-import Intro from './views/Intro/Intro.vue'
-import Install from './views/Install/Install.vue'
-import GetStarted from './views/GetStarted/GetStarted.vue'
+import Markdown from './components/Markdown.vue'
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
+const cm = filename => h(Markdown,{path:`../markdown/${filename}.md`,key:filename})
 const history = createWebHashHistory()
 const router = createRouter({
     history: history,
@@ -29,9 +28,9 @@ const router = createRouter({
                 {path:'dialog',component:DialogDemo},
                 {path:'tabs',component:TabsDemo},
                 {path:'messagebox',component:MessageBoxDemo},
-                {path:'intro',component:Intro},
-                {path:'install',component:Install},
-                {path:'get-started',component:GetStarted},
+                {path:'intro',component:cm('Intro')},
+                {path:'install',component:cm('Install')},
+                {path:'get-started',component:cm('GetStarted')},
             ]
         }
     ]

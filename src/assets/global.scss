@@ -5,5 +5,11 @@ html:not(.dark){
     --link-font-color:white;
     --vp-sidebar-width-mobile: 320px;
     --vp-sidebar-width-small: 266px;
-    --el-color-primary: #409eff;
+    --ht-color-primary: #409eff;
+    --code-font-color:#303133;
+    --code-bg-color:#F5F7FA;
+    --code-font-family:"JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    --ht-border-radius-base:4px;
+    --ht-demo-icon-color:#909399;
+    --ht-demo-icon-color--hover:--code-font-color
 }
