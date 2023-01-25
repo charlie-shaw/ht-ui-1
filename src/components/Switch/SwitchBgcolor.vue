@@ -1,3 +1,6 @@
+<demo>
+    开关背景颜色
+</demo>
 <template>
     <h2>开关背景颜色</h2>
     <ht-switch v-model="value1"

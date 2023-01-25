@@ -1,17 +1,22 @@
 <template>
-  <SwitchDefault></SwitchDefault>
-  <SwitchBgcolor></SwitchBgcolor>
-  <SwitchSize></SwitchSize>
-  <SwitchDisabled></SwitchDisabled>
+  <Switch v-model="bool"></Switch>
+  <Switch1Demo></Switch1Demo>
 </template>
 
 <script lang="ts">
 import {ref} from 'vue'
-import SwitchDefault from '../../components/Switch/SwitchDefault.vue'
-import SwitchBgcolor from '../../components/Switch/SwitchBgcolor.vue'
-import SwitchSize from '../../components/Switch/SwitchSize.vue'
-import SwitchDisabled from '../../components/Switch/SwitchDisabled.vue'
+import Switch from '../../lib/Switch.vue'
+import Switch2Demo from '../../components/Switch/SwitchBgcolor.vue'
 export default {
-  components:{SwitchDefault,SwitchBgcolor,SwitchSize,SwitchDisabled},
+  components:{Switch},
+  setup(){
+    console.log(Switch2Demo);
+    
+    
+    const bool = ref(false)
+    return {
+      bool
+    }
+  }
 };
 </script>

@@ -11,5 +11,21 @@ html:not(.dark){
     --code-font-family:"JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     --ht-border-radius-base:4px;
     --ht-demo-icon-color:#909399;
-    --ht-demo-icon-color--hover:--code-font-color
+    --ht-demo-icon-color--hover:--code-font-color;
+    --ht-fill-color-light:#f5f7fa;
+    --ht-scroll-color:#CCCCCC;
+
+
+
+
+
+    ::-webkit-scrollbar{
+        background-color: transparent;
+        width: 7px;
+        height: 7px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: var(--ht-scroll-color);
+        border-radius: 10px;
+    }
 }

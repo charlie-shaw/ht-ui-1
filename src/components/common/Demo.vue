@@ -1,5 +1,7 @@
 <template>
-  <h2 class="demoTitle" v-if="title">{{ title }}</h2>
+  <h2 class="demoTitle" v-if="component.__sourceCodeTitle">
+    {{ component.__sourceCodeTitle }}
+  </h2>
   <div class="demoDesc">
     <component :is="descComponent"></component>
   </div>
@@ -9,39 +11,57 @@
     </div>
     <div class="demo-btns">
       <i class="copy">
-        <svg class="icon" aria-hidden="true" >
+        <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-copy"></use>
         </svg>
       </i>
-      <i class="source-code" >
+      <i class="source-code" @click="toggle">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-code"></use>
         </svg>
       </i>
     </div>
+
     <div class="demo-source-code">
-        
+      <Transition name="example-source">
+        <pre v-html="html" v-show="visible"></pre>
+      </Transition>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { computed } from "@vue/runtime-core";
+import { ref } from "vue";
+// 导入源代码高亮插件
+import Prism from "prismjs";
+import "prismjs/themes/prism.css";
 export default {
   props: {
-    title: {
-      type: String,
-    },
     descComponent: {
       type: Object,
     },
     component: Object,
   },
   setup(props) {
-    console.log((props.component as any).__sourceCode);
-    
-    return{
-        
-    }
+    const visible = ref(false);
+    const html = computed(() => {
+      return Prism.highlight(
+        (props.component as any).__sourceCode,
+        Prism.languages.javascript,
+        "javascript"
+      );
+    });
+    const toggle = () => {
+      visible.value = !visible.value;
+    };
+
+    return {
+      html,
+      Prism,
+      toggle,
+      visible,
+    };
   },
 };
 </script>
@@ -59,25 +79,51 @@ export default {
     padding-right: 30px;
     display: flex;
     justify-content: end;
-    > i{
-        margin: 0 10px;
-       &:hover{
+    > i {
+      margin: 0 10px;
+      &:hover {
         color: black;
-       }
+      }
     }
-    svg{
-        cursor: pointer;
-        width: 20px;
-        height: 20px;
-        transition: all 0.25s;
-        fill: var(--ht-demo-icon-color);
-        &:hover{
-            fill: var(--ht-demo-icon-color--hover);
-        }
+    svg {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      transition: all 0.25s;
+      fill: var(--ht-demo-icon-color);
+      &:hover {
+        fill: var(--ht-demo-icon-color--hover);
+      }
+    }
+  }
+  .demo-source-code {
+    padding: 1em;
+    overflow-y: hidden;
+    background-color: var(--ht-fill-color-light);
+    pre {
+      font-family: var(--code-font-family);
     }
   }
 }
 .show-demo {
   padding: 1.5rem;
+}
+.example-source-enter-from {
+  max-height: 0px;
+}
+.example-source-enter-to {
+  max-height: 500px;
+}
+.example-source-enter-active {
+  transition: all 0.5s;
+}
+.example-source-leave-from {
+  max-height: 500px;
+}
+.example-source-leave-to {
+  max-height: 0px;
+}
+.example-source-leave-active {
+  transition: all 0.5s;
 }
 </style>

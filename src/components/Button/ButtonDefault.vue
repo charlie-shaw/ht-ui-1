@@ -1,5 +1,8 @@
+<demo>
+  基本用法
+</demo>
 <template>
-  <div style="margin-bottom: 10px;">
+  <div style="margin-bottom: 10px">
     <ht-button>Default</ht-button>
     <ht-button type="primary">Primary</ht-button>
     <ht-button type="success">Success</ht-button>
@@ -14,12 +17,9 @@
   <ht-button type="danger" round>Danger</ht-button>
 </template>
   
-  <script lang="ts">
+<script lang="ts">
 import htButton from "../../lib/Button.vue";
 export default {
   components: { htButton },
 };
 </script>
-  
-  <style>
-</style>
