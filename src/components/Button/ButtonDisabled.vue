@@ -2,24 +2,12 @@
     禁用状态
 </demo>
 <template>
-    <ht-button theme="button" disabled>Disabled</ht-button>
-    <ht-button theme="link" type="primary">primary</ht-button>
-    <ht-button theme="link" type="success">success</ht-button>
-    <ht-button theme="link" type="warning">warning</ht-button>
-    <ht-button theme="link" type="danger">danger</ht-button>
+    <ht-button  disabled>Disabled</ht-button>
+    <ht-button  type="primary" disabled>Primary</ht-button>
+    <ht-button  type="success" disabled>Success</ht-button>
+    <ht-button  type="warning" disabled>Warning</ht-button>
+    <ht-button  type="danger" disabled>Danger</ht-button>
     
-    <ht-button theme="link" :disabled="true">plain</ht-button>
-    <ht-button theme="link" type="primary" :disabled="true">primary</ht-button>
-    <ht-button theme="link" type="success" :disabled="true">success</ht-button>
-    <ht-button theme="link" type="warning" :disabled="true">warning</ht-button>
-    <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
-    <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
-    <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
-    <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
-    <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
-    <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
-    <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
-    <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
   </template>
   
   <script lang="ts">

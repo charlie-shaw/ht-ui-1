@@ -1,18 +1,20 @@
+<demo>
+  尺寸
+</demo>
 <template>
-  <h2>尺寸</h2>
   <ht-switch
     v-model="value1"
     active-text="Open"
     inactive-text="Close"
     size="large"
   ></ht-switch>
-  <br>
+  <br/>
   <ht-switch
     v-model="value1"
     active-text="Open"
     inactive-text="Close"
   ></ht-switch>
-  <br>
+  <br/>
   <ht-switch
     v-model="value1"
     active-text="Open"
@@ -32,6 +34,3 @@ export default {
   },
 };
 </script>
-  
-  <style>
-</style>

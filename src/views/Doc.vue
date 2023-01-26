@@ -31,6 +31,9 @@
           <li>
             <router-link to="/doc/messagebox">messageBox</router-link>
           </li>
+          <li>
+            <router-link to="/doc/message">message</router-link>
+          </li>
         </ol>
       </aside>
       <main class="main">
@@ -123,6 +126,9 @@ li {
     height: 100%;
     overflow: auto;
     position: relative;
+    @media screen and (max-width:500px) {
+      padding: 20px;
+    }
   }
 }
 .overlay {

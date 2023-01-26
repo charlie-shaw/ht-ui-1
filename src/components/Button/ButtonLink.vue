@@ -1,3 +1,6 @@
+<demo>
+  链接按钮
+</demo>
 <template>
   <ht-button theme="link" >plain</ht-button>
   <ht-button theme="link" type="primary">primary</ht-button>

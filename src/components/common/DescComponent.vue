@@ -21,5 +21,9 @@ export default {
     background-color: var(--code-bg-color);
     font-family: var(--code-font-family);
    }
+   .row{
+    display: block;
+    margin: 10px 0;
+   }
  }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <desc-component>
-      你可以使用<code>disabled</code>属性来定义按钮是否被禁用。
-      <p class="row">使用<code>disabled</code>属性来控制是否为禁用状态。该属性接受一个<code>Boolean</code>类型的值</p>
+        <p class="row">绑定<code>v-model</code>到一个<code>Boolean</code>类型的变量 </p>
+        <p>可以使用 <code>--switch-on-color</code>属性与<code>--switch-off-color</code>属性来设置开关的背景颜色</p>
     </desc-component>
   </template>
   

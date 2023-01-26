@@ -30,6 +30,7 @@ export default {
     activeColor: { type: String, default: "#409EFF" },
     inactiveColor: { type: String, default: "#DCDFE6" },
     style: { type: Object },
+    // 选中文字颜色
     activeText: { type: String },
     inactiveText: { type: String },
     size: { type: String },
@@ -122,6 +123,7 @@ $h2: $h - 4px;
   cursor: pointer;
   align-items: center;
   position: relative;
+  margin-bottom: 0.5rem !important;
   &.ht-switch--large {
     font-size: 14px;
     line-height: 24px;

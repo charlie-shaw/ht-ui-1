@@ -1,17 +1,29 @@
+<demo>
+    文字按钮
+</demo>
 <template>
-    <h2>文字按钮</h2>
     <ht-button theme="text" >Plain</ht-button>
     <ht-button theme="text" type="primary">Primary</ht-button>
     <ht-button theme="text" type="success">Success</ht-button>
     <ht-button theme="text" type="warning">Warning</ht-button>
     <ht-button theme="text" type="danger">Danger</ht-button>
-    <h2>禁用文字按钮</h2>
-    <ht-button theme="text" :disabled="true">Plain</ht-button>
-    <ht-button theme="text" type="primary" :disabled="true">Primary</ht-button>
-    <ht-button theme="text" type="success" :disabled="true">Success</ht-button>
-    <ht-button theme="text" type="warning" :disabled="true">Warning</ht-button>
-    <ht-button theme="text" type="danger" :disabled="true">Danger</ht-button>
-  </template>
+    <h3 style="margin: 10px;">禁用文字按钮</h3>
+    <ht-button theme="text" disabled>Plain</ht-button>
+    <ht-button theme="text" type="primary" disabled>Primary</ht-button>
+    <ht-button theme="text" type="success" disabled>Success</ht-button>
+    <ht-button theme="text" type="warning" disabled>Warning</ht-button>
+    <ht-button theme="text" type="danger" disabled>Danger</ht-button>
+
+    <h3 style="margin: 10px;">背景色文字按钮</h3>
+    <ht-button theme="text" bg="#F0F2F5">Plain</ht-button>
+    <ht-button theme="text" type="primary" bg="#F0F2F5">Primary</ht-button>
+    <ht-button theme="text" type="success" bg="#F0F2F5">Success</ht-button>
+    <ht-button theme="text" type="warning" bg="#F0F2F5">Warning</ht-button>
+    <ht-button theme="text" type="danger" bg="#F0F2F5">Danger</ht-button>
+
+    
+    
+</template>
   
   <script lang="ts">
   import htButton from '../../lib/Button.vue'

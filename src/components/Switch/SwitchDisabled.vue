@@ -1,5 +1,7 @@
+<demo>
+  禁用状态
+</demo>
 <template>
-    <h2>禁用状态</h2>
     <ht-switch
       v-model="value1"
       :disabled="true"
