@@ -11,9 +11,7 @@
   </template>
   
   <script lang="ts">
-  import htButton from '../../lib/Button.vue'
   export default {
-      components:{htButton}
   }
   </script>
   

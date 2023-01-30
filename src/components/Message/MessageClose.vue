@@ -1,5 +1,5 @@
 <demo>
-    不同状态
+    可关闭的消息提示
 </demo>
   <template>
   <ht-button type="success" @click.stop="open1">success</ht-button>
@@ -16,24 +16,28 @@ export default {
       HtMessage({
         message: "Congrats, this is a success message",
         type: "success",
+        showClose:true
       });
     };
     const open2 = () => {
       HtMessage({
         message: 'Warning, this is a warning message.',
         type: "warning",
+        showClose:true
       });
     };
     const open3 = () => {
       HtMessage({
         message: 'Oops, this is a error message.',
         type: "error",
+        showClose:true
       });
     };
     const open4 = () => {
       HtMessage({
         message: "This  is a  message",
         type: "info",
+        showClose:true
       });
     };
     return { open1,open2,open3,open4 };

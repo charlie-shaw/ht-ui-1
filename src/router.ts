@@ -7,8 +7,8 @@ import SwitchDemo from './views/Switch/SwitchDemo.vue'
 import ButtonDemo from './views/Button/ButtonDemo.vue'
 import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
-import MessageBoxDemo from './components/MessageBoxDemo.vue'
-import MessageDemo from './components/Message/MessageType.vue'
+// import MessageBoxDemo from './components/MessageBoxDemo.vue'
+import MessageDemo from './views/Message/MessageDemo.vue'
 import Markdown from './components/Markdown.vue'
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
@@ -28,7 +28,7 @@ const router = createRouter({
                 {path:'button',component:ButtonDemo},
                 {path:'dialog',component:DialogDemo},
                 {path:'tabs',component:TabsDemo},
-                {path:'messagebox',component:MessageBoxDemo},
+                // {path:'messagebox',component:MessageBoxDemo},
                 {path:'intro',component:cm('Intro')},
                 {path:'install',component:cm('Install')},
                 {path:'get-started',component:cm('GetStarted')},

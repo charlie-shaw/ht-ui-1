@@ -10,7 +10,7 @@
       <component :is="component"></component>
     </div>
     <div class="demo-btns">
-      <i class="copy">
+      <i class="copy" @click="copy" >
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-copy"></use>
         </svg>
@@ -31,8 +31,9 @@
 </template>
 
 <script lang="ts">
-import { computed } from "@vue/runtime-core";
+import { computed, onMounted } from "vue";
 import { ref } from "vue";
+import HtMessage from "../../lib/Message/Message";
 // 导入源代码高亮插件
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
@@ -55,12 +56,27 @@ export default {
     const toggle = () => {
       visible.value = !visible.value;
     };
+    // 复制代码
+    const copy = ()=>{
+      let sourceCode = document.createElement("textarea");
+      // @ts-ignore
+      sourceCode.value = (props.component as any).__sourceCode;
+      document.body.append(sourceCode)
+      sourceCode.select()
+      document.execCommand('copy',true)
+      HtMessage({
+        message:'已复制！',
+        type:'success'
+      })
+      sourceCode.remove()
+    }
 
     return {
       html,
       Prism,
       toggle,
       visible,
+      copy
     };
   },
 };

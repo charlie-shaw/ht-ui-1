@@ -25,9 +25,7 @@
   
   <script lang="ts">
 import { ref } from "vue";
-import htSwitch from "../../lib/Switch.vue";
 export default {
-  components: { htSwitch },
   setup() {
     const value1 = ref(true);
     return { value1 };

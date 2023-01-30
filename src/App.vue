@@ -11,7 +11,7 @@ export default {
     // 页面的宽度
     const width = window.innerWidth;
     const height = window.innerHeight;
-    console.log(width, height);
+    // console.log(width, height);
 
     const asideVisible = ref(width <= 500 ? false : true);
     provide("xxx", asideVisible);

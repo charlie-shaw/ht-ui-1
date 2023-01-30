@@ -1,39 +1,49 @@
-html:not(.dark){
-    --border-color:#dcdfe6;
-    --text--color:#007974;
-    --link-bg-color:#02BCB0;
-    --link-font-color:white;
+html:not(.dark) {
+    --border-color: #dcdfe6;
+    --text--color: #007974;
+    --link-bg-color: #02BCB0;
+    --link-font-color: white;
     --vp-sidebar-width-mobile: 320px;
     --vp-sidebar-width-small: 266px;
     --ht-color-primary: #409eff;
-    --code-font-color:#303133;
-    --code-bg-color:#F5F7FA;
-    --code-font-family:"JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-    --ht-border-radius-base:4px;
-    --ht-demo-icon-color:#909399;
-    --ht-demo-icon-color--hover:--code-font-color;
-    --ht-fill-color-light:#f5f7fa;
-    --ht-scroll-color:#CCCCCC;
-    --ht-message-success-bgcolor:#F0F9EB;
-    --ht-message-success-color:#67C23A;
-    --ht-message-info-color:#909399;
-    --ht-message-info-bgcolor:#F4F4F5;
-    --ht-message-warning-bgcolor:#FDF6EC;
-    --ht-message-warning-color:#E6A23C;
-    --ht-message-error-bgcolor:#FEF0F0;
-    --ht-message-error-color:#F56C6C;
+    --code-font-color: #303133;
+    --code-bg-color: #F5F7FA;
+    --code-font-family: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    --ht-border-radius-base: 4px;
+    --ht-demo-icon-color: #909399;
+    --ht-demo-icon-color--hover: --code-font-color;
+    --ht-fill-color-light: #f5f7fa;
+    --ht-scroll-color: #CCCCCC;
+    --ht-message-success-bgcolor: #F0F9EB;
+    --ht-message-success-color: #67C23A;
+    --ht-message-info-color: #909399;
+    --ht-message-info-bgcolor: #F4F4F5;
+    --ht-message-warning-bgcolor: #FDF6EC;
+    --ht-message-warning-color: #E6A23C;
+    --ht-message-error-bgcolor: #FEF0F0;
+    --ht-message-error-color: #F56C6C;
 
 
 
 
 
-    ::-webkit-scrollbar{
+    ::-webkit-scrollbar {
         background-color: transparent;
         width: 7px;
         height: 7px;
     }
-    ::-webkit-scrollbar-thumb{
+
+    ::-webkit-scrollbar-thumb {
         background-color: var(--ht-scroll-color);
         border-radius: 10px;
     }
+}
+
+code {
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--code-font-color);
+    background-color: var(--code-bg-color);
+    font-family: var(--code-font-family);
 }

@@ -27,13 +27,13 @@ export default {
   //   inheritAttrs: false,
   props: {
     // 默认普通按钮，支持button/link/text
-    theme: {type: String,default: "button"},
+    theme: { type: String, default: "button" },
     // 按钮类型，支持default/primary/danger/warning
-    type: {type: String,default: "default"},
-    disabled: {type: Boolean,default: false},
-    loading: {type: Boolean,default: false},
+    type: { type: String, default: "default" },
+    disabled: { type: Boolean, default: false },
+    loading: { type: Boolean, default: false },
     // 按钮尺寸,支持large/default/small
-    size: {type: String,default: "default"},
+    size: { type: String, default: "default" },
     color: {
       type: String,
       default(val) {
@@ -78,7 +78,7 @@ export default {
         }
       },
     },
-    round: {type: Boolean,default: false,},
+    round: { type: Boolean, default: false },
   },
   setup(props, context) {
     // @ts-ignore
@@ -108,10 +108,10 @@ export default {
   }
   &[class*="theme-link"] {
     background-color: var(--ht-button-bg-color);
-    &:hover{
+    &:hover {
       opacity: 0.5;
     }
-    &:disabled:hover{
+    &:disabled:hover {
       opacity: 1;
     }
   }

@@ -50,7 +50,7 @@ import Topnav from "../components/Topnav.vue";
 export default {
   setup() {
     const asideVisible = inject("xxx");
-    console.log(asideVisible.value);
+    // console.log(asideVisible.value);
     return {
       asideVisible,
     };

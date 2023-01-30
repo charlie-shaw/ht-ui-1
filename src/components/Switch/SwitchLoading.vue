@@ -1,17 +1,15 @@
 <demo>
-    尺寸
+    加载状态
   </demo>
   <template>
   <ht-switch
     v-model="value1"
-    active-text="Pay by month"
-    inactive-text="Pay by year"
+    loading
   ></ht-switch>
   <br />
   <ht-switch
     v-model="value2"
-    active-text="Pay by month"
-    inactive-text="Pay by year"
+    loading
     style="--switch-on-color: #f1bae1; --switch-off-color: #ff4949"
   ></ht-switch>
 </template>
@@ -21,7 +19,7 @@ import { ref } from "vue";
 export default {
   setup() {
     const value1 = ref(true);
-    const value2 = ref(true);
+    const value2 = ref(false);
     return { value1,value2 };
   },
 };

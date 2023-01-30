@@ -6,9 +6,7 @@
   </template>
   
   <script>
-  import DescComponent from '../common/DescComponent.vue'
   export default {
-      components:{DescComponent}
   }
   </script>
   
