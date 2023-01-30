@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <Transition name="ht-dialog">
+    <Transition name="ht-dialog" @afterEnter="opend">
       <div class="ht-dialog-overlay" v-if="visible">
         <div class="ht-dialog-wrapper">
           <div
@@ -43,8 +43,10 @@
 
 <script lang="ts">
 import htButton from "./Button.vue";
+import {watch} from 'vue'
 export default {
   components: { htButton },
+  emits:['close','update:visible','open','opend'],
   props: {
     width: {
       type: [Number, String],
@@ -62,12 +64,35 @@ export default {
       type: String,
       default: "15vh",
     },
+    beforeClose:{
+      type:Function
+    }
   },
-  setup(props, context) {
+  setup(props, ctx) {
+    const done = ()=>{
+      ctx.emit("update:visible", false);
+    }
     const close = () => {
-      context.emit("update:visible", !props.visible);
+      if(props.beforeClose){
+        props.beforeClose(done)
+      }else{
+        done()
+      }
     };
-    return { close };
+    // 当开关的值发生变化,执行关闭逻辑(先执行beforeClose,再done())
+    watch(()=>{
+      return props.visible
+    },(val)=>{
+      if(!val) {
+        ctx.emit("close")
+      }else{
+        ctx.emit("open")
+      }
+    })
+    const opend = ()=>{
+      ctx.emit('opend')
+    }
+    return { close,opend };
   },
 };
 </script>

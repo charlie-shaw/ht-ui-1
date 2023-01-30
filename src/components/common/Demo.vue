@@ -60,9 +60,12 @@ export default {
     const copy = ()=>{
       let sourceCode = document.createElement("textarea");
       // @ts-ignore
+      // 将源代码赋值给textarea的value属性
       sourceCode.value = (props.component as any).__sourceCode;
       document.body.append(sourceCode)
+      // 选取value值
       sourceCode.select()
+      // 复制到剪贴板
       document.execCommand('copy',true)
       HtMessage({
         message:'已复制！',

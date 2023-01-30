@@ -1,5 +1,11 @@
 <template>
-  <ht-dialog title="标题" :visible="visible" @update:visible="visible = $event">
+  <ht-dialog title="标题" :visible="visible" 
+  @update:visible="visible = $event" 
+  :before-close="before" 
+  @close="fn" 
+  @open="open"
+  @opend="opend"
+  >
     <span>This is message</span>
     <template #footer>
       <ht-button @click="visible=false">Cancel</ht-button>
@@ -8,23 +14,31 @@
   </ht-dialog>
   <ht-button @click="visible = true">toggle</ht-button>
 
-  <h2>示例2:使用Hook打开dialog</h2>
-  <ht-button @click="showDialog">showDialog</ht-button>
 </template>
 
 <script lang="ts">
 import htDialog from "../lib/Dialog.vue";
 import htButton from "../lib/Button.vue";
-import {openDialog} from '../lib/openDialog'
 import { ref } from "vue";
 export default {
   components: { htDialog, htButton },
   setup() {
     const visible = ref(false);
-    const showDialog = ()=>{
-      openDialog({title:'标题',content:'你好'})
+    const before =(done)=>{
+      done()
     }
-    return { visible,showDialog };
+    const fn =()=>{
+      console.log('关闭了');
+      
+    }
+    const open=()=>{
+      console.log('打开了');
+      
+    }
+    const opend=()=>{
+      console.log('打开动画结束回调');
+    }
+    return { visible ,before,fn,open,opend};
   },
 };
 </script>
