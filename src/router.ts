@@ -10,6 +10,7 @@ import TabsDemo from './components/TabsDemo.vue'
 // import MessageBoxDemo from './components/MessageBoxDemo.vue'
 import MessageDemo from './views/Message/MessageDemo.vue'
 import Markdown from './components/Markdown.vue'
+import ContainerDemo from './views/Container/ContainerDemo.vue'
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
 const cm = filename => h(Markdown,{path:`../markdown/${filename}.md`,key:filename})
@@ -33,6 +34,7 @@ const router = createRouter({
                 {path:'install',component:cm('Install')},
                 {path:'get-started',component:cm('GetStarted')},
                 {path:'message',component:MessageDemo},
+                {path:'container',component:ContainerDemo},
             ]
         }
     ]

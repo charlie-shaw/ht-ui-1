@@ -34,6 +34,9 @@
           <li>
             <router-link to="/doc/message">message</router-link>
           </li>
+          <li>
+            <router-link to="/doc/container">container</router-link>
+          </li>
         </ol>
       </aside>
       <main class="main">

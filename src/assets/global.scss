@@ -22,7 +22,15 @@ html:not(.dark) {
     --ht-message-warning-color: #E6A23C;
     --ht-message-error-bgcolor: #FEF0F0;
     --ht-message-error-color: #F56C6C;
+    --ht-color-primary-light-1:#c6e2ff;
+    --ht-color-primary-light-2:#d9ecff;
+    --ht-color-primary-light-3:#ecf5ff;
 
+    .ht-header,.ht-aside,.ht-main,.ht-footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 
 
