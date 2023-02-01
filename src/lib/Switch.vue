@@ -33,10 +33,9 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref, computed ,onMounted,watch} from "vue";
-export default {
-  props: {
+   const props = defineProps( {
     modelValue: [Boolean,String,Number],
     disabled: { type: Boolean, default: false },
     activeColor: { type: String, default: "#409EFF" },
@@ -51,9 +50,8 @@ export default {
     beforeChange:{type:Function},
     activeValue:{type:[Boolean,String,Number],default:true},
     inactiveValue:{type:[Boolean,String,Number],default:false},
-  },
-  emits: ["update:modelValue"],
-  setup(props, context) {
+  })
+  const emit = defineEmits(["update:modelValue",'change'],)
     const SwitchActive = ref(null);
     const SwitchClass = computed(() => {
       const size = props.size;
@@ -75,13 +73,11 @@ export default {
       if (props.disabled) return;
       const Switch = await beforeChange()
       if(Switch!==true && Switch!==undefined) return
-      context.emit("update:modelValue", !props.modelValue);
-      context.emit('change',!props.modelValue)
+      emit("update:modelValue", !props.modelValue);
+      // @ts-ignore
+      emit('change',!props.modelValue)
     };
 
-    return { toggle, SwitchClass, Stylecss };
-  },
-};
 </script>
 
 <style lang="scss">

@@ -18,7 +18,7 @@
   <Api :title="ApiTitle" :theads="ApiTheads" :bodyData="ApiBodyData"></Api>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import ButtonLink from "../../components/Button/ButtonLink.vue";
 import ButtonLinkDesc from "../../components/Button/ButtonLinkDesc.vue";
 import ButtonDefault from "../../components/Button/ButtonDefault.vue";
@@ -34,12 +34,6 @@ import ButtonLoading from "../../components/Button/ButtonLoading.vue";
 import ButtonLoadingDesc from "../../components/Button/ButtonLoadingDesc.vue";
 import ButtonColor from "../../components/Button/ButtonColor.vue";
 import ButtonColorDesc from "../../components/Button/ButtonColorDesc.vue";
-import Api from "../../components/common/Api.vue";
-export default {
-  components: {
-    Api
-  },
-  setup() {
     const ApiTitle = "属性";
     const ApiTheads = ["属性名", "说明", "类型", "默认值"];
     const ApiBodyData = [
@@ -62,27 +56,6 @@ export default {
       ["bg", "自定义按钮背景颜色", "String",  ""],
       ["round", "	是否为圆角按钮", "<code>boolean</code>",  false],
     ];
-    return {
-      ButtonDefault,
-      ButtonDefaultDesc,
-      ButtonDisabled,
-      ButtonDisabledDesc,
-      ButtonLink,
-      ButtonLinkDesc,
-      ButtonTextDesc,
-      ButtonText,
-      ButtonLoading,
-      ButtonLoadingDesc,
-      ButtonSize,
-      ButtonSizeDesc,
-      ButtonColor,
-      ButtonColorDesc,
-      ApiTitle,
-      ApiTheads,
-      ApiBodyData
-    };
-  },
-};
 </script>
 
 <style>

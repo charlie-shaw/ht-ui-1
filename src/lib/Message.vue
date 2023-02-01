@@ -39,12 +39,10 @@
     </Transition>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from 'vue';
-import htButton from "./Button.vue";
-export default {
-  components: { htButton },
-  props: {
+ const emit = defineEmits()
+  const props = defineProps({
     width: {
       type: [Number, String],
       default: "30%",
@@ -70,19 +68,16 @@ export default {
         return function(){}
       }
     }
-  },
-  setup(props, context) {
+  })
     const visible_ = ref(false)
     const close = ()=>{
-      context.emit('update:visible',false)
+      // @ts-ignore
+      emit('update:visible',false)
     }
     const ok_ = ()=>{
       props.ok()
       close()
     }
-    return {close,ok_,visible_}
-  },
-};
 </script>
 
 <style lang="scss">

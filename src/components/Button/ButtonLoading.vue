@@ -3,16 +3,8 @@
 </demo>
 <template>
     <ht-button type="primary" loading>Loading</ht-button>
-
-    
-    
 </template>
   
-  <script lang="ts">
-  export default {
-  }
-  </script>
-  
-  <style>
-  
-  </style>
+<script lang="ts" setup>
+
+</script>

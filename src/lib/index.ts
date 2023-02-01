@@ -2,11 +2,15 @@ import HtButton from './Button.vue'
 import HtSwitch from './Switch.vue'
 import Demo from "../components/common/Demo.vue";
 import DescComponent from '../components/common/DescComponent.vue'
+import htDialog from './Dialog.vue'
+import Api from '../components/common/Api.vue'
 const components = {
     HtButton,
     HtSwitch,
     Demo,
-    DescComponent
+    DescComponent,
+    htDialog,
+    Api
 }
 
 

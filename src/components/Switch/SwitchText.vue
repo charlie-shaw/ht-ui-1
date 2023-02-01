@@ -1,5 +1,5 @@
 <demo>
-    尺寸
+    文字描述
   </demo>
   <template>
   <ht-switch
@@ -16,13 +16,8 @@
   ></ht-switch>
 </template>
     
-    <script lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue";
-export default {
-  setup() {
-    const value1 = ref(true);
-    const value2 = ref(true);
-    return { value1,value2 };
-  },
-};
+const value1 = ref(true);
+const value2 = ref(true);
 </script>

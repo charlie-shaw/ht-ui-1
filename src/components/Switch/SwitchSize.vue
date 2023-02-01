@@ -8,13 +8,15 @@
     inactive-text="Close"
     size="large"
   ></ht-switch>
-  <br/>
+  <br />
+
   <ht-switch
     v-model="value1"
     active-text="Open"
     inactive-text="Close"
   ></ht-switch>
-  <br/>
+  <br />
+
   <ht-switch
     v-model="value1"
     active-text="Open"
@@ -23,12 +25,7 @@
   ></ht-switch>
 </template>
   
-  <script lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue";
-export default {
-  setup() {
-    const value1 = ref(true);
-    return { value1 };
-  },
-};
+const value1 = ref(true);
 </script>

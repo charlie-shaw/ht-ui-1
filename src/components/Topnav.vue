@@ -17,30 +17,24 @@
     </div>
     <span v-if="toggleMenu" class="toggleAside" @click="toggleAside">
       <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-zhankaicaidan"></use>
-        </svg>
+        <use xlink:href="#icon-zhankaicaidan"></use>
+      </svg>
     </span>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { inject, Ref } from "vue";
-export default {
-  setup(props,ctx) {
-    const asideVisible = inject<Ref<boolean>>("xxx");
-    // console.log(asideVisible.value);
-    const toggleAside = () => {
-      asideVisible.value = !asideVisible.value;
-    };
-    
-    return { toggleAside };
+const props = defineProps({
+  toggleMenu: {
+    type: Boolean,
+    default: false,
   },
-  props:{
-    toggleMenu:{
-      type:Boolean,
-      default:false
-    }
-  }
+});
+const asideVisible = inject<Ref<boolean>>("xxx");
+// console.log(asideVisible.value);
+const toggleAside = () => {
+  asideVisible.value = !asideVisible.value;
 };
 </script>
 
@@ -61,7 +55,7 @@ export default {
   > .logo {
     max-width: 6em;
     margin-right: auto;
-    svg{
+    svg {
       width: 30px;
       height: 30px;
       color: #b7e9e6;
@@ -73,7 +67,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    svg{
+    svg {
       width: 30px;
       height: 30px;
     }
@@ -81,7 +75,7 @@ export default {
       list-style: none;
       margin: 0 1em;
     }
-    a{
+    a {
       color: var(--text--color);
       text-decoration: none;
       margin-left: 10px;
@@ -107,7 +101,7 @@ export default {
     }
     > .toggleAside {
       display: inline-block;
-      svg{
+      svg {
         width: 100%;
         height: 100%;
       }

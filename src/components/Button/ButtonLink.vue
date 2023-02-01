@@ -15,11 +15,5 @@
   <ht-button theme="link" type="danger" :disabled="true">danger</ht-button>
 </template>
 
-<script lang="ts">
-export default {
-}
+<script lang="ts" setup>
 </script>
-
-<style>
-
-</style>

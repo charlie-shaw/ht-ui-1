@@ -7,14 +7,8 @@
     <ht-button  type="success" disabled>Success</ht-button>
     <ht-button  type="warning" disabled>Warning</ht-button>
     <ht-button  type="danger" disabled>Danger</ht-button>
-    
-  </template>
+</template>
   
-  <script lang="ts">
-  export default {
-  }
-  </script>
-  
-  <style>
-  
-  </style>
+<script lang="ts" setup>
+
+</script>

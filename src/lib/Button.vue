@@ -20,12 +20,11 @@
   </button>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref, computed } from "vue";
-export default {
   // 取消继承属性
   //   inheritAttrs: false,
-  props: {
+  const props = defineProps({
     // 默认普通按钮，支持button/link/text
     theme: { type: String, default: "button" },
     // 按钮类型，支持default/primary/danger/warning
@@ -79,8 +78,7 @@ export default {
       },
     },
     round: { type: Boolean, default: false },
-  },
-  setup(props, context) {
+  })
     // @ts-ignore
     const { theme, type, size } = props;
     const classes = computed(() => {
@@ -89,9 +87,6 @@ export default {
         [`ht-button--${size}`]: size,
       };
     });
-    return { size, classes };
-  },
-};
 </script>
 
 <style lang="scss" scoped>

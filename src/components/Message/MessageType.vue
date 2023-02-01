@@ -8,36 +8,31 @@
   <ht-button @click.stop="open4">info</ht-button>
 </template>
     
-<script lang="ts">
+<script lang="ts" setup>
 import HtMessage from "../../lib/Message/Message";
-export default {
-  setup() {
-    const open1 = () => {
-      HtMessage({
-        message: "Congrats, this is a success message",
-        type: "success",
-      });
-    };
-    const open2 = () => {
-      HtMessage({
-        message: 'Warning, this is a warning message.',
-        type: "warning",
-      });
-    };
-    const open3 = () => {
-      HtMessage({
-        message: 'Oops, this is a error message.',
-        type: "error",
-      });
-    };
-    const open4 = () => {
-      HtMessage({
-        message: "This  is a  message",
-        type: "info",
-      });
-    };
-    return { open1,open2,open3,open4 };
-  },
+const open1 = () => {
+  HtMessage({
+    message: "Congrats, this is a success message",
+    type: "success",
+  });
+};
+const open2 = () => {
+  HtMessage({
+    message: "Warning, this is a warning message.",
+    type: "warning",
+  });
+};
+const open3 = () => {
+  HtMessage({
+    message: "Oops, this is a error message.",
+    type: "error",
+  });
+};
+const open4 = () => {
+  HtMessage({
+    message: "This  is a  message",
+    type: "info",
+  });
 };
 </script>
   

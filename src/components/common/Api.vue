@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <tr v-for="(tr, index) in bodyData" :key="index">
-          <td v-for="(item, i) in tr" :key="i" v-html='item === "" ? "—" : item'>
+          <td v-for="(item, i) in tr" :key="i" v-html='item == "" ? "—" : item'>
           </td>
         </tr>
       </tbody>

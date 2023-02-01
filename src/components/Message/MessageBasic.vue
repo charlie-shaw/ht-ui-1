@@ -5,16 +5,10 @@
   <ht-button type="success" @click.stop="open">Show Message</ht-button>
 </template>
     
-<script lang="ts">
+<script lang="ts" setup>
 import HtMessage from "../../lib/Message/Message";
-import { h } from "vue";
-export default {
-  setup() {
-    const open =()=>{
-      HtMessage({message:'This  is a  message'})
-    }
-    return { open };
-  },
+const open = () => {
+  HtMessage({ message: "This  is a  message" });
 };
 </script>
   

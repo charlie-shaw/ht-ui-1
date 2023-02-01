@@ -14,46 +14,39 @@
     :before-change="beforeChange2"
   />
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue";
-import HtMessage from '../../lib/Message/Message'
-export default {
-  setup() {
-    const value1 = ref(false);
-    const value2 = ref(false);
-    const loading1 = ref(false);
-    const loading2 = ref(false);
+import HtMessage from "../../lib/Message/Message";
+const value1 = ref(false);
+const value2 = ref(false);
+const loading1 = ref(false);
+const loading2 = ref(false);
 
-    const beforeChange1 = () => {
-      loading1.value = true;
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          loading1.value = false;
-          HtMessage({
-            type:'success',
-            message:'Switch success'
-          })
-          return resolve(true);
-        }, 1000);
+const beforeChange1 = () => {
+  loading1.value = true;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      loading1.value = false;
+      HtMessage({
+        type: "success",
+        message: "Switch success",
       });
-    };
+      return resolve(true);
+    }, 1000);
+  });
+};
 
-    const beforeChange2 = () => {
-      loading2.value = true;
-      return new Promise((_, reject) => {
-        setTimeout(() => {
-          loading2.value = false;
-          HtMessage({
-            type:'error',
-            message:'Switch error'
-          })
-          return reject(new Error("Error"));
-        }, 1000);
+const beforeChange2 = () => {
+  loading2.value = true;
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      loading2.value = false;
+      HtMessage({
+        type: "error",
+        message: "Switch error",
       });
-    };
-    return{
-        value1,value2,loading1,loading2,beforeChange2,beforeChange1
-    }
-  },
+      return reject(new Error("Error"));
+    }, 1000);
+  });
 };
 </script>

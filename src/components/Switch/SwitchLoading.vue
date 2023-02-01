@@ -2,10 +2,7 @@
     加载状态
   </demo>
   <template>
-  <ht-switch
-    v-model="value1"
-    loading
-  ></ht-switch>
+  <ht-switch v-model="value1" loading></ht-switch>
   <br />
   <ht-switch
     v-model="value2"
@@ -14,13 +11,8 @@
   ></ht-switch>
 </template>
     
-    <script lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue";
-export default {
-  setup() {
-    const value1 = ref(true);
-    const value2 = ref(false);
-    return { value1,value2 };
-  },
-};
+const value1 = ref(true);
+const value2 = ref(false);
 </script>

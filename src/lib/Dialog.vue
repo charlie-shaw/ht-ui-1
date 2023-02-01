@@ -1,17 +1,21 @@
 <template>
   <Teleport to="body">
-    <Transition name="ht-dialog" @afterEnter="opend">
-      <div class="ht-dialog-overlay" v-if="visible">
+    <Transition name="ht-dialog" @afterEnter="opend" @after-leave="closed">
+      <div class="ht-dialog-overlay" v-if="visible" @click="scope">
         <div class="ht-dialog-wrapper">
           <div
+            ref="dialog"
+            tabindex="0"
+            @keyup.esc.prevent="esc"
             class="ht-dialog"
             :style="[{ width: width }, { marginTop: top }]"
+            :class="customClass"
           >
             <header>
               <slot name="header">
                 <span>{{ title }}</span>
               </slot>
-              <button class="Close" @click="close">
+              <button class="Close" @click="close" v-if="showClose">
                 <i class="icon-close">
                   <svg
                     viewBox="0 0 1024 1024"
@@ -30,8 +34,7 @@
             </main>
             <footer>
               <slot name="footer">
-                <ht-button @click="close">Cancel</ht-button>
-                <ht-button type="primary" @click="close">Ok</ht-button>
+                
               </slot>
             </footer>
           </div>
@@ -41,60 +44,77 @@
   </Teleport>
 </template>
 
-<script lang="ts">
-import htButton from "./Button.vue";
-import {watch} from 'vue'
-export default {
-  components: { htButton },
-  emits:['close','update:visible','open','opend'],
-  props: {
-    width: {
-      type: [Number, String],
-      default: "30%",
-    },
-    title: {
-      type: String,
-      default: "Tips",
-    },
-    visible: {
-      type: Boolean,
-      default: true,
-    },
-    top: {
-      type: String,
-      default: "15vh",
-    },
-    beforeClose:{
-      type:Function
-    }
-  },
-  setup(props, ctx) {
-    const done = ()=>{
-      ctx.emit("update:visible", false);
-    }
+<script lang="ts" setup>
+import { watch, ref } from "vue";
+  const emit =  defineEmits(["close", "update:visible", "open", "opend","closed"])
+  const props = defineProps({
+    width: { type: [Number, String], default: "30%" },
+    title: { type: String, default: "Tips" },
+    visible: { type: Boolean, default: true },
+    top: { type: String, default: "15vh" },
+    beforeClose: { type: Function },
+    showClose: { type: Boolean, default: true },
+    // 按ESC关闭
+    closeOnPressEscape: { type: Boolean, default: true },
+    // 点击遮罩层关闭
+    closeOnClickModal:{type:Boolean,default:true},
+    // 自定义类名
+    customClass:{type:String,default:''}
+  })
+  
+    const dialog = ref();
+    let dialogEl;
+    const done = () => {
+      emit("update:visible", false);
+    };
     const close = () => {
-      if(props.beforeClose){
-        props.beforeClose(done)
-      }else{
-        done()
+      if (props.beforeClose) {
+        props.beforeClose(done);
+      } else {
+        done();
       }
     };
     // 当开关的值发生变化,执行关闭逻辑(先执行beforeClose,再done())
-    watch(()=>{
-      return props.visible
-    },(val)=>{
-      if(!val) {
-        ctx.emit("close")
-      }else{
-        ctx.emit("open")
+    watch(
+      () => {
+        return props.visible;
+      },
+      (val) => {
+        if (!val) {
+          emit("close");
+        } else {
+          emit("open");
+        }
       }
-    })
-    const opend = ()=>{
-      ctx.emit('opend')
+    );
+    const opend = () => {
+      // 当打开后获取Dialog的dom元素
+      dialogEl = dialog.value;
+      dialogEl.focus();
+      emit("opend");
+    };
+    // 按ESC关闭
+    const esc = (e) => {
+      if (!props.closeOnPressEscape) return;
+      close();
+    };
+    // 检测鼠标点击的范围
+    const scope = (e) => {
+      let startY = dialogEl.offsetTop;
+      let startX = dialogEl.offsetLeft;
+      let endX = startX + dialogEl.offsetWidth
+      let endY = startY + dialogEl.offsetHeight      
+      if(e.clientX >startX &&e.clientX<endX &&e.clientY > startY && e.clientY < endY ) return
+      if(!props.closeOnClickModal)
+      {
+        dialogEl.focus()
+        return
+      }
+      close()
+    };
+    const closed =()=>{
+      emit('closed')
     }
-    return { close,opend };
-  },
-};
 </script>
 
 <style lang="scss">
@@ -117,6 +137,7 @@ export default {
     top: 0;
     > .ht-dialog {
       position: relative;
+      outline: none;
       width: var(--ht-dialog--width);
       padding: 20px;
       background-color: white;

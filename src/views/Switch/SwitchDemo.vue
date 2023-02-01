@@ -22,7 +22,7 @@
   <Api :title="event" :theads="eventTheades" :bodyData="eventBodyData"></Api>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue";
 import SwitchDefault from "../../components/Switch/SwitchDefault.vue";
 import SwitchDefaultDesc from "../../components/Switch/SwitchDefaultDesc.vue";
@@ -36,12 +36,6 @@ import SwitchLoading from "../../components/Switch/SwitchLoading.vue";
 import SwitchLoadingDesc from "../../components/Switch/SwitchLoadingDesc.vue";
 import SwitchBeforeChange from "../../components/Switch/SwitchBeforeChange.vue";
 import SwitchBeforeChangeDesc from "../../components/Switch/SwitchBeforeChangeDesc.vue";
-import Api from "../../components/common/Api.vue";
-export default {
-  components: {
-    Api,
-  },
-  setup() {
     const ApiTitle = "属性";
     const ApiTheads = ["属性名", "说明", "类型", "可选值", "默认值"];
     const ApiBodyData = [
@@ -79,26 +73,4 @@ export default {
     const eventBodyData = [
       ["change", "switch状态发生变化时的回调函数", "val,新状态的值"],
     ];
-    return {
-      SwitchDefault,
-      SwitchDefaultDesc,
-      SwitchSize,
-      SwitchSizeDesc,
-      SwitchTextDesc,
-      SwitchText,
-      SwitchDisabledDesc,
-      SwitchDisabled,
-      SwitchLoading,
-      SwitchLoadingDesc,
-      SwitchBeforeChange,
-      SwitchBeforeChangeDesc,
-      ApiTitle,
-      ApiTheads,
-      ApiBodyData,
-      event,
-      eventTheades,
-      eventBodyData,
-    };
-  },
-};
 </script>

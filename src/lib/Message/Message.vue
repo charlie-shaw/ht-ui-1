@@ -22,10 +22,9 @@
   </Teleport>
 </template>
 
-<script lang="ts">
-import { computed, ref, onMounted, watch,render } from "vue";
-export default {
-  props: {
+<script lang="ts" setup>
+import { computed, ref, onMounted} from "vue";
+  const props = defineProps({
     // 距离顶部的偏移量
     offset: { type: Number, default: 20 },
     offsetTop: { type: Number },
@@ -41,8 +40,7 @@ export default {
     // 关闭的回调
     close: { type: Function },
     id: String,
-  },
-  setup(props, ctx) {
+  })
     let timer;
     // 切换的状态
     const visible = ref(false);
@@ -69,19 +67,6 @@ export default {
       Timer();
     });
 
-    // watch(()=>message_unknow.value,(newVal,oldVal)=>{
-    //   console.log(123);
-      
-    // },{immediate:true})
-
-
-    return {
-      classes,
-      visible,
-      close,
-    };
-  },
-};
 </script>
 
 <style lang="scss">

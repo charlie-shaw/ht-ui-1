@@ -43,22 +43,10 @@
   </div>
 </template>
 
-<script >
-import { inject, onMounted, ref } from "vue";
+<script setup lang="ts">
+import { inject } from "vue";
 import Topnav from "../components/Topnav.vue";
-
-export default {
-  setup() {
     const asideVisible = inject("xxx");
-    // console.log(asideVisible.value);
-    return {
-      asideVisible,
-    };
-  },
-  components: {
-    Topnav,
-  },
-};
 </script>
 
 <style lang="scss" scoped>

@@ -7,10 +7,6 @@
   <ht-button size="small">Small</ht-button>
 </template>
   
-  <script lang="ts">
-export default {
-};
+<script lang="ts" setup>
+
 </script>
-  
-  <style>
-</style>

@@ -9,19 +9,13 @@
   <Api :title="ApiTitle" :theads="ApiTheads" :bodyData="ApiBodyData"></Api>
 </template>
 
-<script>
+<script lang="ts" setup>
 import MessageBasic from "../../components/Message/MessageBasic.vue";
 import MessageBasicDesc from "../../components/Message/MessageBasicDesc.vue";
 import MessageType from "../../components/Message/MessageType.vue";
 import MessageTypeDesc from "../../components/Message/MessageTypeDesc.vue";
 import MessageClose from "../../components/Message/MessageClose.vue";
 import MessageCloseDesc from "../../components/Message/MessageCloseDesc.vue";
-import Api from "../../components/common/Api.vue";
-export default {
-  components: {
-    Api,
-  },
-  setup() {
     const ApiTitle = "MessageAPI";
     const ApiTheads = ["属性名", "说明", "类型", "默认值"];
     const ApiBodyData = [
@@ -68,20 +62,7 @@ export default {
         "",
       ],
     ];
-    return {
-      MessageBasic,
-      MessageBasicDesc,
-      MessageType,
-      MessageTypeDesc,
-      MessageClose,
-      MessageCloseDesc,
-      ApiTitle,
-      ApiTheads,
-      ApiBodyData,
-    };
-  },
-};
-</script>
+</script> 
 
 <style>
 </style>

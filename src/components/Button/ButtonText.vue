@@ -20,16 +20,8 @@
     <ht-button theme="text" type="success" bg="#F0F2F5">Success</ht-button>
     <ht-button theme="text" type="warning" bg="#F0F2F5">Warning</ht-button>
     <ht-button theme="text" type="danger" bg="#F0F2F5">Danger</ht-button>
-
-    
-    
 </template>
   
-  <script lang="ts">
-  export default {
-  }
-  </script>
-  
-  <style>
-  
-  </style>
+<script lang="ts" setup>
+
+</script>
