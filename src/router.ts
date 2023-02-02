@@ -1,16 +1,17 @@
 
 import { createWebHashHistory, createRouter } from 'vue-router'
 import {h} from 'vue'
-import Home from './views/Home.vue'
-import Doc from './views/Doc.vue'
-import SwitchDemo from './views/Switch/SwitchDemo.vue'
-import ButtonDemo from './views/Button/ButtonDemo.vue'
-import DialogDemo from './views/Dialog/DialogDemo.vue'
-import TabsDemo from './components/TabsDemo.vue'
+const Home = ()=>import('./views/Home.vue')
+const Doc =()=>import('./views/Doc.vue')
+const SwitchDemo = ()=>import('./views/Switch/SwitchDemo.vue')
+const ButtonDemo = ()=>import('./views/Button/ButtonDemo.vue')
+const DialogDemo = ()=>import('./views/Dialog/DialogDemo.vue')
+const TabsDemo = ()=>import('./components/TabsDemo.vue')
+const MessageDemo = ()=>import('./views/Message/MessageDemo.vue')
 // import MessageBoxDemo from './components/MessageBoxDemo.vue'
-import MessageDemo from './views/Message/MessageDemo.vue'
 import Markdown from './components/Markdown.vue'
-import ContainerDemo from './views/Container/ContainerDemo.vue'
+const ContainerDemo = ()=>import('./views/Container/ContainerDemo.vue')
+const InputDemo = ()=>import('./views/Form/InputDemo.vue')
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
 const cm = filename => h(Markdown,{path:`../markdown/${filename}.md`,key:filename})
@@ -35,6 +36,7 @@ const router = createRouter({
                 {path:'get-started',component:cm('GetStarted')},
                 {path:'message',component:MessageDemo},
                 {path:'container',component:ContainerDemo},
+                {path:'input',component:InputDemo},
             ]
         }
     ]

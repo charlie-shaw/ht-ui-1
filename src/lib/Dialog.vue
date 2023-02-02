@@ -48,7 +48,7 @@
 import { watch, ref } from "vue";
   const emit =  defineEmits(["close", "update:visible", "open", "opend","closed"])
   const props = defineProps({
-    width: { type: [Number, String], default: "30%" },
+    width: { type: [Number, String], default: "45%" },
     title: { type: String, default: "Tips" },
     visible: { type: Boolean, default: true },
     top: { type: String, default: "15vh" },

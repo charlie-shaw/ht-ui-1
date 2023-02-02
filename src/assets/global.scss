@@ -25,6 +25,10 @@ html:not(.dark) {
     --ht-color-primary-light-1:#c6e2ff;
     --ht-color-primary-light-2:#d9ecff;
     --ht-color-primary-light-3:#ecf5ff;
+    --ht-input-hover-border-color: #c0c4cc;
+    --ht-input-disabled-border-color: #e4e7ed;
+    --ht-input-disabled-bgcolor: #f5f7fa;
+    --ht-input-disabled-text-color: #a8abb2;
 
     .ht-header,.ht-aside,.ht-main,.ht-footer{
         display: flex;
