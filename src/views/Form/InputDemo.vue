@@ -1,5 +1,5 @@
 <template>
-<Demo :component="InputBasic"></Demo>
+<Demo :component="InputBasic" ></Demo>
 </template>
 
 <script setup>

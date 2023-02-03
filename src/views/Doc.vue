@@ -32,10 +32,13 @@
             <router-link to="/doc/messagebox">messageBox</router-link>
           </li>
           <li>
-            <router-link to="/doc/message">message</router-link>
+            <router-link to="/doc/message">Message</router-link>
           </li>
           <li>
-            <router-link to="/doc/container">container</router-link>
+            <router-link to="/doc/container">Container</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/input">Input</router-link>
           </li>
         </ol>
       </aside>
