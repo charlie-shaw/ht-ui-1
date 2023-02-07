@@ -12,6 +12,7 @@ const MessageDemo = ()=>import('./views/Message/MessageDemo.vue')
 import Markdown from './components/Markdown.vue'
 const ContainerDemo = ()=>import('./views/Container/ContainerDemo.vue')
 const InputDemo = ()=>import('./views/Form/InputDemo.vue')
+const InputNumberDemo = ()=>import('./views/Form/InputNumberDemo.vue')
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
 const cm = filename => h(Markdown,{path:`../markdown/${filename}.md`,key:filename})
@@ -37,6 +38,7 @@ const router = createRouter({
                 {path:'message',component:MessageDemo},
                 {path:'container',component:ContainerDemo},
                 {path:'input',component:InputDemo},
+                {path:'inputNumber',component:InputNumberDemo},
             ]
         }
     ]

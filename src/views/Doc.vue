@@ -40,6 +40,9 @@
           <li>
             <router-link to="/doc/input">Input</router-link>
           </li>
+          <li>
+            <router-link to="/doc/inputNumber">inputNumber</router-link>
+          </li>
         </ol>
       </aside>
       <main class="main">

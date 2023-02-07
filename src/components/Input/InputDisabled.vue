@@ -1,8 +1,8 @@
 <demo>
-基础用法
+禁用状态
 </demo>
 <template>
-  <ht-input v-model="input"  placeholder="Please input" />
+  <ht-input v-model="input" disabled placeholder="Please input" />
 </template>
 
 <script lang="ts" setup>

@@ -29,6 +29,12 @@ html:not(.dark) {
     --ht-input-disabled-border-color: #e4e7ed;
     --ht-input-disabled-bgcolor: #f5f7fa;
     --ht-input-disabled-text-color: #a8abb2;
+    --ht-component-size-large: 40px;
+    --ht-component-size-small:24px;
+    --ht-text-color-regular: #606266;
+    --ht-input-height-default:32px;
+    --ht-input-height-large:40px;
+    --ht-input-height-small:24px;
 
     .ht-header,.ht-aside,.ht-main,.ht-footer{
         display: flex;
@@ -51,6 +57,17 @@ html:not(.dark) {
     }
 }
 
+.ht-icon svg{
+    height: 1em;
+    width: 1em;
+}
+.ht-input__inner {
+    border: none;
+    outline: none;
+    width: 100%;
+    line-height: var(--ht-input-height-default);
+    font-size: inherit;
+  }
 code {
     padding: 0.15rem 0.5rem;
     border-radius: 4px;

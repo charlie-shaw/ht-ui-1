@@ -10,6 +10,7 @@ import HtMain from './Container/Main.vue'
 import HtFooter from './Container/Footer.vue'
 import HtContainer from './Container/Container.vue'
 import HtInput from './Input/Input.vue'
+import HtInputNumber from './InputNumber/InputNumber.vue'
 const components = {
     HtButton,
     HtSwitch,
@@ -22,7 +23,8 @@ const components = {
     HtMain,
     HtFooter,
     HtContainer,
-    HtInput
+    HtInput,
+    HtInputNumber
 }
 
 
