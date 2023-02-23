@@ -82,6 +82,7 @@ li {
   background-color: white;
   padding: 38px 32px 0;
   flex-shrink: 0;
+  overflow: auto;
   > ol {
     margin: 0;
     padding: 0;

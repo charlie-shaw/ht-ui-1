@@ -10,7 +10,6 @@ let zIndex = 2000;
 const containers = []
 const HtMessage = function (options) {
     renderVnode(options)
-
 }
 function renderVnode(options) {
     const PropClose = options.close

@@ -3,7 +3,7 @@
     <Topnav />
     <div class="banner">
       <h1>Hot UI</h1>
-      <h2>基于vue3，面向开发者的组件库</h2>
+      <h2>基于Vue3，面向开发者的组件库</h2>
       <p class="actions">
         <a href="https://github.com/1186549058/ht-ui-1">GitHub</a>
         <router-link to="/doc/get-started">开始</router-link>

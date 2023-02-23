@@ -6,7 +6,7 @@ const Doc =()=>import('./views/Doc.vue')
 const SwitchDemo = ()=>import('./views/Switch/SwitchDemo.vue')
 const ButtonDemo = ()=>import('./views/Button/ButtonDemo.vue')
 const DialogDemo = ()=>import('./views/Dialog/DialogDemo.vue')
-const TabsDemo = ()=>import('./components/TabsDemo.vue')
+const TabsDemo = ()=>import('./views/Tabs/TabsDemo.vue')
 const MessageDemo = ()=>import('./views/Message/MessageDemo.vue')
 // import MessageBoxDemo from './components/MessageBoxDemo.vue'
 import Markdown from './components/Markdown.vue'

@@ -11,6 +11,8 @@ import HtFooter from './Container/Footer.vue'
 import HtContainer from './Container/Container.vue'
 import HtInput from './Input/Input.vue'
 import HtInputNumber from './InputNumber/InputNumber.vue'
+import HtTabs from './Tabs/Tab.vue'
+import HtTabPane from './Tabs/TabPane.vue'
 const components = {
     HtButton,
     HtSwitch,
@@ -24,7 +26,9 @@ const components = {
     HtFooter,
     HtContainer,
     HtInput,
-    HtInputNumber
+    HtInputNumber,
+    HtTabs,
+    HtTabPane
 }
 
 

@@ -34,6 +34,7 @@ export default {
 
 <style lang="scss">
 .doc-api {
+  overflow: auto;
   display: flex;
   flex-direction: column;
   margin-top: 36px;
