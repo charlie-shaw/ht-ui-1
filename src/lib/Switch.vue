@@ -81,7 +81,7 @@ import { ref, computed ,onMounted,watch} from "vue";
 </script>
 
 <style lang="scss">
-@import "./ht.scss";
+@import "./global.scss";
 $h: 22px;
 $h2: $h - 4px;
 .ht-switch {

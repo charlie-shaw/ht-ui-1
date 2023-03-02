@@ -36,6 +36,7 @@ html:not(.dark) {
     --ht-input-height-large:40px;
     --ht-input-height-small:24px;
     --ht-bg-color:#ffffff;
+    --ht-border-color-lighter:#ebeef5;
 
     .ht-header,.ht-aside,.ht-main,.ht-footer{
         display: flex;
@@ -77,3 +78,8 @@ code {
     background-color: var(--code-bg-color);
     font-family: var(--code-font-family);
 }
+[class^="ht-"],[class*=" ht-"]{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }

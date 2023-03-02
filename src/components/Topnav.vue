@@ -39,7 +39,7 @@ const toggleAside = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/global.scss";
+
 .topnav {
   height: 60px;
   position: relative;

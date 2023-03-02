@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="ht-dialog" @afterEnter="opend" @after-leave="closed">
-      <div class="ht-dialog-overlay" v-if="visible" @click="scope">
+      <div class="ht-dialog-overlay" v-show="visible" @click="scope">
         <div class="ht-dialog-wrapper">
           <div
             ref="dialog"

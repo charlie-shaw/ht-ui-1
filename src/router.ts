@@ -13,6 +13,7 @@ import Markdown from './components/Markdown.vue'
 const ContainerDemo = ()=>import('./views/Container/ContainerDemo.vue')
 const InputDemo = ()=>import('./views/Form/InputDemo.vue')
 const InputNumberDemo = ()=>import('./views/Form/InputNumberDemo.vue')
+const RadioDemo = ()=>import('./views/Radio/RadioDemo.vue')
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
 const cm = filename => h(Markdown,{path:`../markdown/${filename}.md`,key:filename})
@@ -39,6 +40,7 @@ const router = createRouter({
                 {path:'container',component:ContainerDemo},
                 {path:'input',component:InputDemo},
                 {path:'inputNumber',component:InputNumberDemo},
+                {path:'radio',component:RadioDemo},
             ]
         }
     ]

@@ -29,9 +29,6 @@
             <router-link to="/doc/tabs">Tabs组件</router-link>
           </li>
           <li>
-            <router-link to="/doc/messagebox">messageBox</router-link>
-          </li>
-          <li>
             <router-link to="/doc/message">Message</router-link>
           </li>
           <li>
@@ -42,6 +39,9 @@
           </li>
           <li>
             <router-link to="/doc/inputNumber">inputNumber</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/radio">radio</router-link>
           </li>
         </ol>
       </aside>
@@ -59,7 +59,7 @@ import Topnav from "../components/Topnav.vue";
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/global.scss";
+@import "../lib/global.scss";
 .router-link-active {
   background-color: rgba(64, 158, 255, 0.1);
   color: var(--ht-color-primary);

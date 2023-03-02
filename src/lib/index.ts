@@ -13,6 +13,8 @@ import HtInput from './Input/Input.vue'
 import HtInputNumber from './InputNumber/InputNumber.vue'
 import HtTabs from './Tabs/Tab.vue'
 import HtTabPane from './Tabs/TabPane.vue'
+import HtRadio from './Radio/Radio.vue'
+import HtRadioGroup from './Radio/RadioGroup.vue'
 const components = {
     HtButton,
     HtSwitch,
@@ -28,13 +30,17 @@ const components = {
     HtInput,
     HtInputNumber,
     HtTabs,
-    HtTabPane
+    HtTabPane,
+    HtRadio,
+    HtRadioGroup
 }
 
 
 
 const HotUI = {
     install(Vue) {
+        Vue.config.globalProperties['ht-id']=0
+        
         for(let key in components){
             Vue.component(key,components[key])
         }
