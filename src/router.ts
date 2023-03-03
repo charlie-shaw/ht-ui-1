@@ -10,13 +10,18 @@ const TabsDemo = ()=>import('./views/Tabs/TabsDemo.vue')
 const MessageDemo = ()=>import('./views/Message/MessageDemo.vue')
 // import MessageBoxDemo from './components/MessageBoxDemo.vue'
 import Markdown from './components/Markdown.vue'
+import Intro from './markdown/Intro.md'
+import Install from './markdown/Install.md'
+import GetStarted from './markdown/GetStarted.md'
+
+
 const ContainerDemo = ()=>import('./views/Container/ContainerDemo.vue')
 const InputDemo = ()=>import('./views/Form/InputDemo.vue')
 const InputNumberDemo = ()=>import('./views/Form/InputNumberDemo.vue')
 const RadioDemo = ()=>import('./views/Radio/RadioDemo.vue')
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
-const cm = filename => h(Markdown,{path:`../markdown/${filename}.md`,key:filename})
+const cm = string => h(Markdown,{content:string,key:string})
 const history = createWebHashHistory()
 const router = createRouter({
     history: history,
@@ -33,9 +38,9 @@ const router = createRouter({
                 {path:'dialog',component:DialogDemo},
                 {path:'tabs',component:TabsDemo},
                 // {path:'messagebox',component:MessageBoxDemo},
-                {path:'intro',component:cm('Intro')},
-                {path:'install',component:cm('Install')},
-                {path:'get-started',component:cm('GetStarted')},
+                {path:'intro',component:cm(Intro)},
+                {path:'install',component:cm(Install)},
+                {path:'get-started',component:cm(GetStarted)},
                 {path:'message',component:MessageDemo},
                 {path:'container',component:ContainerDemo},
                 {path:'input',component:InputDemo},

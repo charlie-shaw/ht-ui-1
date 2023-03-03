@@ -35,6 +35,8 @@ const asideVisible = inject<Ref<boolean>>("xxx");
 // console.log(asideVisible.value);
 const toggleAside = () => {
   asideVisible.value = !asideVisible.value;
+  console.log(asideVisible.value);
+  
 };
 </script>
 

@@ -2,7 +2,7 @@
   <div class="doc">
     <Teleport to="body">
       <Transition name="overlay">
-        <div v-if="asideVisible" class="overlay"></div>
+        <div v-show="asideVisible" class="overlay"></div>
       </Transition>
     </Teleport>
     <Topnav toggleMenu />
@@ -55,7 +55,7 @@
 <script setup lang="ts">
 import { inject } from "vue";
 import Topnav from "../components/Topnav.vue";
-    const asideVisible = inject("xxx");
+const asideVisible = inject("xxx");
 </script>
 
 <style lang="scss" scoped>
@@ -110,7 +110,7 @@ li {
   &.open {
     transform: translateX(0);
   }
-  transform: translateX(calc(0px - var(--vp-sidebar-width-mobile)));
+  transform: translateX( -320px );
   transition: all 0.4s cubic-bezier(0.4, 0, 0, 1);
 }
 .content {

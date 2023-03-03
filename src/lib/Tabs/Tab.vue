@@ -151,7 +151,9 @@ let classes = computed(() => {
     display: flex;
     position: relative;
     .ht-tabs__items {
-      padding: 0 20px;
+      flex-grow: 1;
+      text-align: center;
+      // padding: 0 20px;
       cursor: pointer;
       &:hover,
       &.is-active {
