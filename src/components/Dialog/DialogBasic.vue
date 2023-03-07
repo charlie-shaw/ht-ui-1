@@ -2,9 +2,10 @@
     Dialog，弹出一个对话框
 </demo>
 <template>
-    <ht-dialog title="标题" :visible="visible" 
+    <ht-dialog  title="标题" :visible="visible" 
     @update:visible="visible = $event" 
     :before-close="before" 
+    draggable
     @close="fn" 
     @open="open"
     @opend="opend"

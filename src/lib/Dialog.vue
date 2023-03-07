@@ -8,10 +8,14 @@
             tabindex="0"
             @keyup.esc.prevent="esc"
             class="ht-dialog"
-            :style="[{ width: width }, { marginTop: top }]"
-            :class="customClass"
+            :style="[
+              { width: width },
+              { marginTop: top },
+              { transform: `translate(${transX}px,${transY}px)` },
+            ]"
+            :class="classes"
           >
-            <header>
+            <header ref="header">
               <slot name="header">
                 <span>{{ title }}</span>
               </slot>
@@ -33,9 +37,7 @@
               <slot />
             </main>
             <footer>
-              <slot name="footer">
-                
-              </slot>
+              <slot name="footer"> </slot>
             </footer>
           </div>
         </div>
@@ -45,76 +47,114 @@
 </template>
 
 <script lang="ts" setup>
-import { watch, ref } from "vue";
-  const emit =  defineEmits(["close", "update:visible", "open", "opend","closed"])
-  const props = defineProps({
-    width: { type: [Number, String], default: "45%" },
-    title: { type: String, default: "Tips" },
-    visible: { type: Boolean, default: true },
-    top: { type: String, default: "15vh" },
-    beforeClose: { type: Function },
-    showClose: { type: Boolean, default: true },
-    // 按ESC关闭
-    closeOnPressEscape: { type: Boolean, default: true },
-    // 点击遮罩层关闭
-    closeOnClickModal:{type:Boolean,default:true},
-    // 自定义类名
-    customClass:{type:String,default:''}
-  })
-  
-    const dialog = ref();
-    let dialogEl;
-    const done = () => {
-      emit("update:visible", false);
-    };
-    const close = () => {
-      if (props.beforeClose) {
-        props.beforeClose(done);
-      } else {
-        done();
-      }
-    };
-    // 当开关的值发生变化,执行关闭逻辑(先执行beforeClose,再done())
-    watch(
-      () => {
-        return props.visible;
-      },
-      (val) => {
-        if (!val) {
-          emit("close");
-        } else {
-          emit("open");
-        }
-      }
-    );
-    const opend = () => {
-      // 当打开后获取Dialog的dom元素
-      dialogEl = dialog.value;
-      dialogEl.focus();
-      emit("opend");
-    };
-    // 按ESC关闭
-    const esc = (e) => {
-      if (!props.closeOnPressEscape) return;
-      close();
-    };
-    // 检测鼠标点击的范围
-    const scope = (e) => {
-      let startY = dialogEl.offsetTop;
-      let startX = dialogEl.offsetLeft;
-      let endX = startX + dialogEl.offsetWidth
-      let endY = startY + dialogEl.offsetHeight      
-      if(e.clientX >startX &&e.clientX<endX &&e.clientY > startY && e.clientY < endY ) return
-      if(!props.closeOnClickModal)
-      {
-        dialogEl.focus()
-        return
-      }
-      close()
-    };
-    const closed =()=>{
-      emit('closed')
+import { watch, ref, computed, onMounted, toRefs } from "vue";
+import useTranslate from "../hooks/useTranslate";
+const emit = defineEmits([
+  "close",
+  "update:visible",
+  "open",
+  "opend",
+  "closed",
+]);
+const props = defineProps({
+  width: { type: [Number, String], default: "45%" },
+  title: { type: String, default: "Tips" },
+  visible: { type: Boolean, default: true },
+  top: { type: String, default: "15vh" },
+  beforeClose: { type: Function },
+  showClose: { type: Boolean, default: true },
+  // 按ESC关闭
+  closeOnPressEscape: { type: Boolean, default: true },
+  // 点击遮罩层关闭
+  closeOnClickModal: { type: Boolean, default: true },
+  // 自定义类名
+  customClass: { type: String, default: "" },
+  draggable: { type: Boolean, default: false },
+});
+//dialogDom
+const dialog = ref();
+// headerDom
+const header = ref();
+
+//
+let transX = null;
+let transY = null;
+onMounted(()=>{
+  if(props.draggable){
+    let position = useTranslate(header.value)
+    transX = position.transX
+    transY = position.transY
+  }
+})
+
+
+// 类名
+const classes = computed(() => {
+  return {
+    [`${props.customClass}`]: true,
+    [`is-draggable`]: props.draggable,
+  };
+});
+let dialogEl;
+
+// dialog关闭的回调
+const done = () => {
+  emit("update:visible", false);
+};
+
+const close = () => {
+  if (props.beforeClose) {
+    props.beforeClose(done);
+  } else {
+    done();
+  }
+};
+// 当开关的值发生变化,执行关闭逻辑(先执行beforeClose,再done())
+watch(
+  () => {
+    return props.visible;
+  },
+  (val) => {
+    if (!val) {
+      emit("close");
+    } else {
+      emit("open");
     }
+  }
+);
+const opend = () => {
+  // 当打开后获取Dialog的dom元素
+  dialogEl = dialog.value;
+  dialogEl.focus();
+  emit("opend");
+};
+// 按ESC关闭
+const esc = (e) => {
+  if (!props.closeOnPressEscape) return;
+  close();
+};
+// 检测鼠标点击的范围
+const scope = (e) => {
+  let startY = dialogEl.getBoundingClientRect().y;
+  let startX = dialogEl.getBoundingClientRect().x;
+  let endX = startX + dialogEl.offsetWidth;
+  let endY = startY + dialogEl.offsetHeight;
+  if (
+    e.clientX > startX &&
+    e.clientX < endX &&
+    e.clientY > startY &&
+    e.clientY < endY
+  )
+    return;
+  if (!props.closeOnClickModal) {
+    dialogEl.focus();
+    return;
+  }
+  close();
+};
+const closed = () => {
+  emit("closed");
+};
 </script>
 
 <style lang="scss">
@@ -139,13 +179,18 @@ import { watch, ref } from "vue";
       position: relative;
       outline: none;
       width: var(--ht-dialog--width);
-      padding: 20px;
+      padding-bottom: 20px;
       background-color: white;
       border-radius: 3px;
       margin-left: auto;
       margin-right: auto;
+      &.is-draggable {
+        header {
+          cursor: move;
+        }
+      }
       > header {
-        padding-bottom: 10px;
+        padding: 20px 20px 10px 20px;
         > .Close {
           display: flex;
           justify-content: center;
@@ -171,12 +216,12 @@ import { watch, ref } from "vue";
         }
       }
       > main {
-        padding: 30px 0;
+        padding: 30px 20px;
       }
       > footer {
         display: flex;
         justify-content: end;
-        padding-top: 10px;
+        padding: 10px 20px 0 20px;
       }
     }
   }

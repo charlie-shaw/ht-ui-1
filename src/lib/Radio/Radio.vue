@@ -61,7 +61,6 @@ const handlerChange = (e) => {
 // 判断是否为RadioGroup
 const isGroup = computed(() => {
   let parent = getCurrentInstance().parent;
-    console.log(parent)
   while (parent) {
     if (parent.type["__name"] !== "RadioGroup") {
       parent = parent.parent;
@@ -99,14 +98,7 @@ const Name = computed(() => {
       : inject("RadioNameId")
     : props.name;
 });
-onMounted(()=>{
-  // console.log('model',model.value,'props',props.label);
-    // console.log('group',_radioGroup.value?.props.modelValue,'radio',props.modelValue);
-    console.log('group',_radioGroup.value,'radio',props.modelValue);
 
-  // console.log('name',Name);
-  // console.log('checked',isChecked);
-})
 
 const model = computed({
   get() {
