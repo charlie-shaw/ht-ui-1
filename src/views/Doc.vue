@@ -43,6 +43,12 @@
           <li>
             <router-link to="/doc/radio">radio</router-link>
           </li>
+          <li>
+            <router-link to="/doc/table">Table</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/checkbox">Checkbox</router-link>
+          </li>
         </ol>
       </aside>
       <main class="main">

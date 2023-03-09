@@ -19,6 +19,9 @@ const ContainerDemo = ()=>import('./views/Container/ContainerDemo.vue')
 const InputDemo = ()=>import('./views/Form/InputDemo.vue')
 const InputNumberDemo = ()=>import('./views/Form/InputNumberDemo.vue')
 const RadioDemo = ()=>import('./views/Radio/RadioDemo.vue')
+const TableDemo = ()=>import('./views/Table/TableDemo.vue')
+const CheckboxDemo = ()=>import('./views/Checkbox/CheckboxDemo.vue')
+
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
 const cm = string => h(Markdown,{content:string,key:string})
@@ -46,6 +49,8 @@ const router = createRouter({
                 {path:'input',component:InputDemo},
                 {path:'inputNumber',component:InputNumberDemo},
                 {path:'radio',component:RadioDemo},
+                {path:'table',component:TableDemo},
+                {path:'checkbox',component:CheckboxDemo},
             ]
         }
     ]

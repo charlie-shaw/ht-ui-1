@@ -15,6 +15,12 @@ import HtTabs from '../lib/Tabs/Tab.vue'
 import HtTabPane from '../lib/Tabs/TabPane.vue'
 import HtRadio from '../lib/Radio/Radio.vue'
 import HtRadioGroup from '../lib/Radio/RadioGroup.vue'
+import HtTable from '../lib/Table/Table.vue'
+import HtTableColumn from '../lib/Table/TableColumn.vue'
+import HtCheckbox from '../lib/CheckBox/Checkbox.vue'
+import HtCheckboxGroup from '../lib/CheckBox/CheckboxGroup.vue'
+
+
 const components = {
     HtButton,
     HtSwitch,
@@ -32,7 +38,11 @@ const components = {
     HtTabs,
     HtTabPane,
     HtRadio,
-    HtRadioGroup
+    HtRadioGroup,
+    HtTable,
+    HtTableColumn,
+    HtCheckbox,
+    HtCheckboxGroup
 }
 
 
