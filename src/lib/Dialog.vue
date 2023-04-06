@@ -48,7 +48,7 @@
 
 <script lang="ts" setup>
 import { watch, ref, computed, onMounted, toRefs } from "vue";
-import useTranslate from "../hooks/useTranslate";
+import useTranslate from "./hooks/useTranslate";
 const emit = defineEmits([
   "close",
   "update:visible",

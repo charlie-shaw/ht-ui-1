@@ -9,7 +9,7 @@ const componentName="HtRadioGroup"
 
 import {   useSlots,getCurrentInstance, ref, watch, useAttrs, provide } from "vue";
 // 获取全局一个递增的id
-import useComponentId from '../../hooks/useComponentId'
+import useComponentId from '../hooks/useComponentId'
 const props = defineProps({
   modelValue : { type: [String, Number, Boolean],default:undefined },
   name:{type:String},

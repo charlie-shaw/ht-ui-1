@@ -49,6 +49,9 @@
           <li>
             <router-link to="/doc/checkbox">Checkbox</router-link>
           </li>
+          <li>
+            <router-link to="/doc/infinite-scroll">infinite-scroll</router-link>
+          </li>
         </ol>
       </aside>
       <main class="main">

@@ -25,19 +25,19 @@
     :theads="CheckboxTheads"
     :bodyData="CheckboxBodyData"
   ></Api>
-  <!-- Api属性 -->
+
   <Api
     :title="CheckboxEvent"
     :theads="CheckboxEventTheads"
     :bodyData="CheckboxEventBodyData"
   ></Api>
-  <!-- Api属性 -->
+ 
   <Api
     :title="CheckboxSlots"
     :theads="CheckboxSlotsTheads"
     :bodyData="CheckboxSlotsBodyData"
   ></Api>
-  <!-- Api属性 -->
+
   <Api
     :title="CheckboxGroupTitle"
     :theads="CheckboxGroupTheads"
@@ -48,7 +48,7 @@
     :theads="CheckboxEventTheads"
     :bodyData="CheckboxEventBodyData"
   ></Api>
-  <!-- Api属性 -->
+
   <Api
     :title="CheckboxGroupSlotsTitle"
     :theads="CheckboxGroupSlotsTheads"

@@ -22,6 +22,8 @@ const RadioDemo = ()=>import('./views/Radio/RadioDemo.vue')
 const TableDemo = ()=>import('./views/Table/TableDemo.vue')
 const CheckboxDemo = ()=>import('./views/Checkbox/CheckboxDemo.vue')
 
+const InfiniteScrollDemo = ()=>import('./views/InfiniteScroll/InfiniteScrollDemo.vue')
+
 // 导入进度条动画
 import {start,done} from './utils/Nprogress'
 const cm = string => h(Markdown,{content:string,key:string})
@@ -51,6 +53,7 @@ const router = createRouter({
                 {path:'radio',component:RadioDemo},
                 {path:'table',component:TableDemo},
                 {path:'checkbox',component:CheckboxDemo},
+                {path:'infinite-scroll',component:InfiniteScrollDemo},
             ]
         }
     ]

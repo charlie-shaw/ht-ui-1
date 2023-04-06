@@ -112,7 +112,6 @@ const model = computed({
     if (isGroup.value) {
       _radioGroup.value.emit("update:modelValue", val);
       _radioGroup.value.emit("change",val)
-
     }
     emits("update:modelValue", val);
     emits("change", val);

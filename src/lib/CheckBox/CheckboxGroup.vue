@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import useComponentId from "../../hooks/useComponentId";
+import useComponentId from "../hooks/useComponentId";
 import { computed, provide, ref, useSlots } from "vue";
 const componentId = useComponentId()
 const props = defineProps({
