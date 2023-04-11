@@ -19,6 +19,9 @@ import HtTable from '../lib/Table/Table.vue'
 import HtTableColumn from '../lib/Table/TableColumn.vue'
 import HtCheckbox from '../lib/CheckBox/Checkbox.vue'
 import HtCheckboxGroup from '../lib/CheckBox/CheckboxGroup.vue'
+import HtTooltip from '../lib/Tooltip/Tooltip.vue'
+// import HtTooltip from '../lib/Tooltip/Tooltip'
+import HtTipcontainer from '../lib/TipContainer/TipContainer.vue'
 import type{ App } from 'vue';
 
 import useDirectives from './Directives/index'
@@ -45,7 +48,9 @@ const components = {
     HtTable,
     HtTableColumn,
     HtCheckbox,
-    HtCheckboxGroup
+    HtCheckboxGroup,
+    HtTooltip,
+    HtTipcontainer
 }
 
 
@@ -53,6 +58,8 @@ const components = {
 const HotUI = {
     install(Vue:App) {
         Vue.config.globalProperties['ht-id']=0
+        Vue.config.globalProperties['z-index']=2000
+        
         for(let key in components){
             Vue.component(key,components[key])
         }

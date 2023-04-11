@@ -10,16 +10,20 @@
       <component :is="component"></component>
     </div>
     <div class="demo-btns">
-      <i class="copy" @click="copy" >
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-copy"></use>
-        </svg>
-      </i>
-      <i class="source-code" @click="toggle">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-code"></use>
-        </svg>
-      </i>
+      <ht-tooltip content="复制代码" placement="bottom">
+        <i class="copy" @click="copy">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-copy"></use>
+          </svg>
+        </i>
+      </ht-tooltip>
+      <ht-tooltip content="查看源代码" placement="bottom">
+        <i class="source-code" @click="toggle">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-code"></use>
+          </svg>
+        </i>
+      </ht-tooltip>
     </div>
 
     <div class="demo-source-code">
@@ -57,29 +61,29 @@ export default {
       visible.value = !visible.value;
     };
     // 复制代码
-    const copy = ()=>{
+    const copy = () => {
       let sourceCode = document.createElement("textarea");
       // @ts-ignore
       // 将源代码赋值给textarea的value属性
       sourceCode.value = (props.component as any).__sourceCode;
-      document.body.append(sourceCode)
+      document.body.append(sourceCode);
       // 选取value值
-      sourceCode.select()
+      sourceCode.select();
       // 复制到剪贴板
-      document.execCommand('copy',true)
+      document.execCommand("copy", true);
       HtMessage({
-        message:'已复制！',
-        type:'success'
-      })
-      sourceCode.remove()
-    }
+        message: "已复制！",
+        type: "success",
+      });
+      sourceCode.remove();
+    };
 
     return {
       html,
       Prism,
       toggle,
       visible,
-      copy
+      copy,
     };
   },
 };

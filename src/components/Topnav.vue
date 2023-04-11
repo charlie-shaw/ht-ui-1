@@ -3,7 +3,7 @@
     <div class="logo">
       <router-link to="/home">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-lights"></use>
+          <use xlink:href="#icon-H"></use>
         </svg>
       </router-link>
     </div>

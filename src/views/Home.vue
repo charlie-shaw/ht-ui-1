@@ -11,36 +11,36 @@
     </div>
   </div>
   <div class="features">
-      <ul>
-        <li>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-Vue"></use>
-          </svg>
-          <div class="message">
-            <h3>基于 Vue 3</h3>
-            <p>采用了 Vue 3 compositionAPI</p>
-          </div>
-        </li>
-        <li>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-typescript"></use>
-          </svg>
-          <div class="message">
-            <h3>基于 TypeScript</h3>
-            <p>源代码使用了TypeScript书写（非严格检查）</p>
-          </div>
-        </li>
-        <li>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-read"></use>
-          </svg>
-          <div class="message">
-            <h3>代码易读</h3>
-            <p>每个组件的源代码都及其简洁</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-Vue"></use>
+        </svg>
+        <div class="message">
+          <h3>基于 Vue 3</h3>
+          <p>采用了 Vue 3 compositionAPI</p>
+        </div>
+      </li>
+      <li>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-typescript"></use>
+        </svg>
+        <div class="message">
+          <h3>基于 TypeScript</h3>
+          <p>源代码使用了TypeScript书写（非严格检查）</p>
+        </div>
+      </li>
+      <li>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-read"></use>
+        </svg>
+        <div class="message">
+          <h3>代码易读</h3>
+          <p>每个组件的源代码都及其简洁</p>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
@@ -57,56 +57,57 @@ export default {
   box-sizing: border-box;
 }
 .topnavAndBanner {
+  background: rgb(2, 0, 36);
   background: linear-gradient(
-    145deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(227, 255, 253, 1) 0%,
-    rgba(183, 233, 230, 1) 100%
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(35, 140, 237, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
   );
   clip-path: ellipse(80% 60% at 50% 40%);
 }
-.features{
+.features {
   margin-top: 50px;
-  ul{
+  ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    li{
+    li {
       width: 100%;
-      height:70px ;
+      height: 70px;
       line-height: 1.5;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 20px 0;
-      h3{
+      h3 {
         font-size: 28px;
       }
-      .message{
+      .message {
         margin-left: 10px;
-        p{
+        p {
           margin: 10px 0;
         }
       }
     }
   }
-  svg{
+  svg {
     width: 64px;
     height: 64px;
   }
-  @media screen and (min-width:800px) {
-    ul>li{
+  @media screen and (min-width: 800px) {
+    ul > li {
       width: 50%;
     }
   }
-  @media screen and (min-width:1200px) {
-    ul>li{
+  @media screen and (min-width: 1200px) {
+    ul > li {
       width: 33.33333%;
     }
   }
 }
 .banner {
-  padding: 50px  0 100px ;
+  padding: 50px 0 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,6 +126,10 @@ export default {
       // line-height: $h;
       border-radius: 20px;
       padding: 8px 24px;
+      transition: all 0.2s;
+      &:hover {
+        box-shadow: 0 0 5px 1px white inset;
+      }
     }
   }
 }
