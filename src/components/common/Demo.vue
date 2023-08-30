@@ -130,6 +130,7 @@ export default {
 }
 .show-demo {
   padding: 1.5rem;
+  width: 1300px;
 }
 .example-source-enter-from {
   max-height: 0px;
