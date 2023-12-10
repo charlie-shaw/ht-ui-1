@@ -58,10 +58,13 @@ const props = withDefaults(defineProps<Props>(), {
   effect: "dark",
   offset: 12,
 });
+const placement = computed(() => {
+  return props.placement;
+});
 const classes = computed(() => {
   return {
     [`is-${props.effect}`]: true,
-    [`${props.placement}-arrow ${props.placement}`]: true,
+    [`${placement.value}-arrow ${placement.value}`]: true,
   };
 });
 
@@ -89,18 +92,17 @@ const fn = (position) => {
   DomPosition.value = position;
 };
 const setPosition = (position: any, size: any) => {
-  const placement = props.placement;
-  if (placement.includes("top")) {
+  const _placement = placement.value;
+  if (_placement.includes("top")) {
     PoperTop.value = position.value.top - props.offset + "px";
     PoperLeft.value =
       position.value.left + DomPosition.value.width / 2 - 8 + "px";
     ToolTipBottom.value = `8px`;
-  } else if (placement.includes("bottom")) {
+  } else if (_placement.includes("bottom")) {
     PoperTop.value = position.value.top + ToolTipHeight.value + "px";
     PoperLeft.value =
       position.value.left + DomPosition.value.width / 2 - 8 + "px";
-    ToolTipBottom.value = -ToolTipHeight.value  - 8 + 'px';
-    
+    ToolTipBottom.value = -ToolTipHeight.value - 8 + "px";
   }
 };
 onMounted(() => {

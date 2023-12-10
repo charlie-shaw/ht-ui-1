@@ -8,11 +8,12 @@ export function GetSlotsByName(name: String, Data: any[]) {
       result.push(item);
     }
   });
-
   return result;
 }
 
 // 判断插槽中的组件是否是v-for渲染的
 function isFragment(type: any) {
-  return type.toString() === "Symbol(Fragment)";
+  return (
+    type.toString() === "Symbol(Fragment)" || type.toString() === "Symbol()"
+  );
 }

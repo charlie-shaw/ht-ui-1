@@ -94,6 +94,8 @@ export default {
   margin: 36px 0 20px;
 }
 .demo {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--border-color);
   border-radius: var(--ht-border-radius-base);
   .demo-btns {
@@ -130,7 +132,7 @@ export default {
 }
 .show-demo {
   padding: 1.5rem;
-  width: 1300px;
+  max-width: 1300px;
 }
 .example-source-enter-from {
   max-height: 0px;

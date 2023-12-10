@@ -171,7 +171,7 @@ defineExpose({ prev, next, setActiveItem });
 }
 
 .ht-carousel__arrow {
-  z-index: 999;
+  z-index: 99;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,7 +207,7 @@ defineExpose({ prev, next, setActiveItem });
   li {
     list-style: none;
   }
-  z-index: 999;
+  z-index: 99;
   position: absolute;
 
   .ht-carousel__button {

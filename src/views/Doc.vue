@@ -2,7 +2,11 @@
   <div class="doc">
     <Teleport to="body">
       <Transition name="overlay">
-        <div v-show="asideVisible" class="overlay"></div>
+        <div
+          v-show="asideVisible"
+          class="overlay"
+          @click="onOverlayClick"
+        ></div>
       </Transition>
     </Teleport>
     <Topnav toggleMenu />
@@ -72,6 +76,9 @@ const navList = [
   },
 ];
 const asideVisible = inject("xxx");
+const onOverlayClick = (e) => {
+  asideVisible.value = !asideVisible.value;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -93,12 +100,13 @@ li {
   list-style: none;
 }
 .aside {
-  z-index: 99;
+  z-index: 99999;
   width: var(--vp-sidebar-width-small);
   background-color: white;
   padding: 38px 32px 0;
   flex-shrink: 0;
   overflow: auto;
+  padding-bottom: 65px;
   ol {
     margin: 0;
     padding: 0;
@@ -152,7 +160,7 @@ li {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 98;
+  z-index: 99;
   @media screen and (min-width: 500px) {
     display: none;
   }
