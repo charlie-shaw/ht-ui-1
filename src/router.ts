@@ -23,6 +23,7 @@ const CheckboxDemo = () => import("./views/Checkbox/CheckboxDemo.vue");
 const InfiniteScrollDemo = () =>
   import("./views/InfiniteScroll/InfiniteScrollDemo.vue");
 const CarouselDemo = () => import("./views/Carousel/CarouselDemo.vue");
+const VirtualListDemo = () => import("./views/VirtualList/VirtualListDemo.vue");
 // 导入进度条动画
 import { start, done } from "./utils/Nprogress";
 const cm = (string) => h(Markdown, { content: string, key: string });
@@ -55,6 +56,7 @@ const router = createRouter({
         { path: "checkbox", component: CheckboxDemo },
         { path: "infinite-scroll", component: InfiniteScrollDemo },
         { path: "carousel", component: CarouselDemo },
+        { path: "virtual-list", component: VirtualListDemo },
       ],
     },
   ],

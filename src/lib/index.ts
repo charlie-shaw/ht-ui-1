@@ -24,6 +24,7 @@ import HtTooltip from "../lib/Tooltip/Tooltip.vue";
 import HtTipcontainer from "../lib/TipContainer/TipContainer.vue";
 import HtCarousel from "../lib/Carousel/Carousel.vue"; // Carousels are now part of the Vue.js core library.  https://vuejs.org/v
 import HtCarouselItem from "../lib/Carousel/CarouselItem.vue"; // Carousels are now part of the Vue.js core library.  https://vuejs.org/v
+import HtVirtualList from "../lib/VirtualList/VirtualList.vue";
 import type { App } from "vue";
 
 import useDirectives from "./Directives/index";
@@ -54,6 +55,7 @@ const components = {
   HtTipcontainer,
   HtCarousel,
   HtCarouselItem,
+  HtVirtualList,
 };
 
 const HotUI = {

@@ -317,7 +317,7 @@
     "@vue/compiler-core" "3.2.45"
     "@vue/shared" "3.2.45"
 
-"@vue/compiler-sfc@^3.0.0-rc.1", "@vue/compiler-sfc@^3.0.3", "@vue/compiler-sfc@3.2.45":
+"@vue/compiler-sfc@*", "@vue/compiler-sfc@^3.0.0-rc.1", "@vue/compiler-sfc@^3.0.3", "@vue/compiler-sfc@3.2.45":
   "integrity" "sha512-1jXDuWah1ggsnSAOGsec8cFjT/K6TMZ0sPL3o3d84Ft2AYZi2jWJgRMjw4iaK0rBfA89L5gw427H4n1RZQBu6Q=="
   "resolved" "https://registry.npmmirror.com/@vue/compiler-sfc/-/compiler-sfc-3.2.45.tgz"
   "version" "3.2.45"
@@ -1231,7 +1231,7 @@
     "debug" "^3.1.0"
     "koa-send" "^5.0.0"
 
-"koa@^2.13.0":
+"koa@^2.13.0", "koa@>=2":
   "integrity" "sha512-USJFyZgi2l0wDgqkfD27gL4YGno7TfUkcmOe6UOLFOVuN+J7FwnNu4Dydl4CUQzraM1lBAiGed0M9OVJoT0Kqw=="
   "resolved" "https://registry.npmmirror.com/koa/-/koa-2.14.1.tgz"
   "version" "2.14.1"
@@ -1558,7 +1558,7 @@
     "picocolors" "^0.2.1"
     "source-map" "^0.6.1"
 
-"postcss@^8.1.10":
+"postcss@^8.1.10", "postcss@>=8.0.9":
   "integrity" "sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg=="
   "resolved" "https://registry.npmmirror.com/postcss/-/postcss-8.4.21.tgz"
   "version" "8.4.21"
@@ -1693,7 +1693,7 @@
   dependencies:
     "estree-walker" "^0.6.1"
 
-"rollup@^2.32.1":
+"rollup@^1.20.0 || ^2.0.0", "rollup@^1.20.0||^2.0.0", "rollup@^1.9.2 || ^2.0.0", "rollup@^2.0.0", "rollup@^2.30.0", "rollup@^2.32.1":
   "integrity" "sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw=="
   "resolved" "https://registry.npmmirror.com/rollup/-/rollup-2.79.1.tgz"
   "version" "2.79.1"
@@ -1962,7 +1962,7 @@
   "resolved" "https://registry.npmmirror.com/vue-router/-/vue-router-4.0.0-beta.3.tgz"
   "version" "4.0.0-beta.3"
 
-"vue@^3.0.0-rc.1", "vue@^3.0.3":
+"vue@^3.0.0-beta.20", "vue@^3.0.0-rc.1", "vue@^3.0.3", "vue@3.2.45":
   "integrity" "sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA=="
   "resolved" "https://registry.npmmirror.com/vue/-/vue-3.2.45.tgz"
   "version" "3.2.45"

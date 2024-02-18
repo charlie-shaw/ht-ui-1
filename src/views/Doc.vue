@@ -61,6 +61,7 @@ const navList = [
     links: [
       { name: "Infinite Scroll无限滚动", path: "/doc/infinite-scroll" },
       { name: "Carousel 走马灯", path: "/doc/carousel" },
+      // { name: "VirtualList 虚拟滚动列表", path: "/doc/virtual-list" },
     ],
   },
   {
@@ -100,13 +101,16 @@ li {
   list-style: none;
 }
 .aside {
-  z-index: 99999;
+  z-index: 100;
   width: var(--vp-sidebar-width-small);
   background-color: white;
   padding: 38px 32px 0;
   flex-shrink: 0;
   overflow: auto;
   padding-bottom: 65px;
+  h2 {
+    font-size: 20px;
+  }
   ol {
     margin: 0;
     padding: 0;
